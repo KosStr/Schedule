@@ -40,7 +40,7 @@ namespace Schedule.Database.Repository.Implementations
             }
         }
 
-        ISqlRepository<T> IUnitOfWork.Sql<T>()
+        ISqlRepository<T> IUnitOfWork.Repository<T>()
         {
             return _lifetimeScope.Resolve<ISqlRepository<T>>(new NamedParameter("context", _context.Value));
         }

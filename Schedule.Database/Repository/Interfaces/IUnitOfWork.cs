@@ -9,6 +9,6 @@ namespace Schedule.Database.Repository.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         Task SaveChangesAsync(CancellationToken cancellationToken = default);
-        ISqlRepository<T> Sql<T>() where T : class, ISqlEntity;
+        ISqlRepository<T> Repository<T>() where T : class, ISqlEntity;
     }
 }

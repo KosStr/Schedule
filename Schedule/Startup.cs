@@ -57,8 +57,6 @@ namespace Schedule
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule(new CoreModule());
-            builder.RegisterModule(new DatabaseModule());
             builder.RegisterModule(new BusinessModule());
         }
     }
