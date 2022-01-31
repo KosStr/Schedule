@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "bc513bb8-c680-46e0-bc32-3bcdd7f9d1c5": {
+      "ProjectGuid": "bc513bb8-c680-46e0-bc32-3bcdd7f9d1c5",
+      "DisplayName": "Schedule",
+      "ColorIndex": 0
+    },
+    "e3f2085a-0c49-473d-9ebc-cf968e3bdba0": {
+      "ProjectGuid": "e3f2085a-0c49-473d-9ebc-cf968e3bdba0",
+      "DisplayName": "Schedule.Core",
+      "ColorIndex": 1
+    },
+    "9bba24be-e96b-45fe-8435-75062b6214ca": {
+      "ProjectGuid": "9bba24be-e96b-45fe-8435-75062b6214ca",
+      "DisplayName": "Schedule.Database",
+      "ColorIndex": 2
+    },
+    "c7deef92-16c8-4fa5-af5c-a575863aa83c": {
+      "ProjectGuid": "c7deef92-16c8-4fa5-af5c-a575863aa83c",
+      "DisplayName": "Schedule.repositories",
+      "ColorIndex": 3
+    },
+    "f3aea13b-b131-4875-808e-de33583891be": {
+      "ProjectGuid": "f3aea13b-b131-4875-808e-de33583891be",
+      "DisplayName": "Schedule.Business",
+      "ColorIndex": 4
+    },
+    "eed48816-dc4e-4bd3-b42c-7c986bc6a350": {
+      "ProjectGuid": "eed48816-dc4e-4bd3-b42c-7c986bc6a350",
+      "DisplayName": "Schedule.Validators",
+      "ColorIndex": 5
+    },
+    "2bf00f76-7f68-423d-be68-f4d355153813": {
+      "ProjectGuid": "2bf00f76-7f68-423d-be68-f4d355153813",
+      "DisplayName": "Schedule.Services",
+      "ColorIndex": 6
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 7
+}

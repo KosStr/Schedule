@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "VNr0jNhQ4cTeWH5/ASZoIGSk/1Eo8m4OaJmhVaEV8LiFnCq/vYQrIDYU7K8cyLickE1J1oV4IRKV1r7NH4d1Rw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
+    "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
