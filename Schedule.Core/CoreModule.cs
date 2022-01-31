@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Autofac;
 
 namespace Schedule.Core
 {
-    internal class CoreModule
+    public class CoreModule: Module
     {
+        protected override void Load(ContainerBuilder builder)
+        {
+            base.Load(builder);
+        }
     }
 }

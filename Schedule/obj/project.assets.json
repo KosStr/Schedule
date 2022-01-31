@@ -1325,6 +1325,20 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Schedule.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Autofac": "6.3.0",
+          "Schedule.Database": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Schedule.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Schedule.Business.dll": {}
+        }
+      },
       "Schedule.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -5214,6 +5228,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Schedule.Business/1.0.0": {
+      "type": "project",
+      "path": "../Schedule.Business/Schedule.Business.csproj",
+      "msbuildProject": "../Schedule.Business/Schedule.Business.csproj"
+    },
     "Schedule.Core/1.0.0": {
       "type": "project",
       "path": "../Schedule.core/Schedule.Core.csproj",
@@ -5229,6 +5248,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Autofac >= 6.3.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.1",
+      "Schedule.Business >= 1.0.0",
       "Schedule.Database >= 1.0.0"
     ]
   },
@@ -5259,6 +5279,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj": {
+              "projectPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj"
+            },
             "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {
               "projectPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj"
             }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Autofac;
 
 namespace Schedule.Business
 {
-    internal class BusinessModule
+    public class BusinessModule : Module
     {
     }
 }

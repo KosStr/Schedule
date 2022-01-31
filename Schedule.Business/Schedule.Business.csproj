@@ -5,12 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Managers\" />
+    <Folder Include="Managers\Base\" />
+    <Folder Include="Managers\Interfaces\" />
     <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Schedule.database\Schedule.Database.csproj" />
   </ItemGroup>
 
 </Project>

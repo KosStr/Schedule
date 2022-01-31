@@ -5,6 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Schedule.database;
+using Autofac;
+using Schedule.Database;
+using Schedule.Business;
+using Schedule.Core;
 
 namespace Schedule
 {
@@ -49,6 +53,13 @@ namespace Schedule
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new CoreModule());
+            builder.RegisterModule(new DatabaseModule());
+            builder.RegisterModule(new BusinessModule());
         }
     }
 }
