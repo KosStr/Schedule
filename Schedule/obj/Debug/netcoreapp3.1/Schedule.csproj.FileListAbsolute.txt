@@ -53,3 +53,5 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\obj\Debug\ne
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.pdb
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.genruntimeconfig.cache
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Autofac.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
