@@ -8,3 +8,8 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\obj
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\obj\Debug\netcoreapp3.1\Schedule.Business.csproj.CoreCompileInputs.cache
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\obj\Debug\netcoreapp3.1\Schedule.Business.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\obj\Debug\netcoreapp3.1\Schedule.Business.pdb
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\bin\Debug\netcoreapp3.1\Schedule.Core.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\bin\Debug\netcoreapp3.1\Schedule.Database.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\bin\Debug\netcoreapp3.1\Schedule.Database.pdb
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\bin\Debug\netcoreapp3.1\Schedule.Core.pdb
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.Business\obj\Debug\netcoreapp3.1\Schedule.Business.csproj.CopyComplete

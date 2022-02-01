@@ -72,6 +72,9 @@ namespace Schedule.Database.Migrations
                         .HasColumnType("TINYINT")
                         .HasDefaultValue((byte)1);
 
+                    b.Property<Guid>("TokenId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
@@ -294,6 +297,34 @@ namespace Schedule.Database.Migrations
                     b.ToTable("TeacherLessons");
                 });
 
+            modelBuilder.Entity("Schedule.Core.Entities.Token.RefreshToken", b =>
+                {
+                    b.Property<byte[]>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("VARBINARY(16)");
+
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<byte[]>("UserId")
+                        .IsRequired()
+                        .HasColumnType("VARBINARY(16)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Token")
+                        .IsUnique();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("Schedule.Core.Entities.Account.User", b =>
                 {
                     b.HasOne("Schedule.Core.Entities.General.Group", "Group")
@@ -359,6 +390,15 @@ namespace Schedule.Database.Migrations
                     b.HasOne("Schedule.Core.Entities.Account.User", "Teacher")
                         .WithMany("Lessons")
                         .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Schedule.Core.Entities.Token.RefreshToken", b =>
+                {
+                    b.HasOne("Schedule.Core.Entities.Account.User", "User")
+                        .WithOne("Token")
+                        .HasForeignKey("Schedule.Core.Entities.Token.RefreshToken", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

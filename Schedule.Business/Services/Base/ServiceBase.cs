@@ -3,7 +3,7 @@ using System;
 
 namespace Schedule.Business.Managers.Base
 {
-    internal abstract class ManagerBase : IDisposable
+    internal abstract class ServiceBase : IDisposable
     {
         #region Properties
 
@@ -13,7 +13,7 @@ namespace Schedule.Business.Managers.Base
 
         #region Constructor
 
-        protected ManagerBase(IUnitOfWork unitOfWork)
+        protected ServiceBase(IUnitOfWork unitOfWork)
         {
             UnitOfWork = unitOfWork;
         }

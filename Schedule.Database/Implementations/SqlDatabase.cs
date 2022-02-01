@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Schedule.Core.Entities.Account;
 using Schedule.Core.Entities.General;
+using Schedule.Core.Entities.Token;
 
 namespace Schedule.database
 {
@@ -36,6 +37,7 @@ namespace Schedule.database
         public DbSet<Mark> Marks { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<TeacherLessons> TeacherLessons { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         #endregion
     }

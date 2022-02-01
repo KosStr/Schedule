@@ -1,14 +1,17 @@
+using Autofac;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Schedule.database;
-using Autofac;
-using Schedule.Database;
+using Microsoft.IdentityModel.Tokens;
 using Schedule.Business;
-using Schedule.Core;
+using Schedule.Core.Helpers;
+using Schedule.database;
+using System;
+using System.Text;
 
 namespace Schedule
 {
@@ -26,13 +29,44 @@ namespace Schedule
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+#if DEBUG
+                    options.RequireHttpsMetadata = false;
+#else
+                    options.RequireHttpsMetadata = true;
+#endif
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ClockSkew = TimeSpan.FromHours(Constants.Jwt.Lifetime),
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Constants.Jwt.Issuer,
+                        ValidAudience = Constants.Jwt.Audience,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Constants.Jwt.Key)),
+                        AuthenticationType = JwtBearerDefaults.AuthenticationScheme
+                    };
+                });
+
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    .WithOrigins(Configuration[""]);
+                });
+            });
 
             services.AddDbContext<SqlDatabase>(options =>
             {
                 options.EnableDetailedErrors(true);
-                //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-                options.UseSqlServer(Configuration["database:sql:connectionString"]);
+                options.UseSqlServer(Configuration["Database:ConnectionString"]);
             }, ServiceLifetime.Scoped, ServiceLifetime.Scoped);
         }
 
@@ -43,10 +77,12 @@ namespace Schedule
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("CorsPolicy");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -55,9 +91,8 @@ namespace Schedule
             });
         }
 
-        public void ConfigureContainer(ContainerBuilder builder)
-        {
-            builder.RegisterModule(new BusinessModule());
-        }
+        //public void ConfigureContainer(ContainerBuilder builder)
+        //{ 
+        //}
     }
 }
