@@ -8,6 +8,8 @@ namespace Schedule.Database.Repository.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
+        Task BeginTransactionAsync(CancellationToken cancellationToken = default);
+        void CommitTransaction();
         Task SaveChangesAsync(CancellationToken cancellationToken = default);
         ISqlRepository<T> Repository<T>() where T : class, ISqlEntity;
     }

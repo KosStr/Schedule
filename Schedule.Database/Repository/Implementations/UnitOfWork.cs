@@ -28,6 +28,19 @@ namespace Schedule.Database.Repository.Implementations
 
         #region Interface Members
 
+        public Task BeginTransactionAsync(CancellationToken cancellationToken = default)
+        {
+            return _context.Value.Database.BeginTransactionAsync(cancellationToken);
+        }
+
+        public void CommitTransaction()
+        {
+            if (_context.Value.Database.CurrentTransaction != null)
+            {
+                _context.Value.Database.CommitTransaction();
+            }
+        }
+
         public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             try
@@ -36,6 +49,10 @@ namespace Schedule.Database.Repository.Implementations
             }
             catch (Exception)
             {
+                if (_context.Value.Database.CurrentTransaction != null)
+                {
+                    _context.Value.Database.RollbackTransaction();
+                }
                 throw;
             }
         }
