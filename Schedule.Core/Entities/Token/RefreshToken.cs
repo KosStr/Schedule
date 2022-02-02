@@ -10,5 +10,11 @@ namespace Schedule.Core.Entities.Token
         public DateTime ExpiryTime { get; set; }
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
+
+        public void Update(string token, DateTime expiryTime)
+        {
+            Token = token;
+            ExpiryTime = expiryTime;
+        }
     }
 }

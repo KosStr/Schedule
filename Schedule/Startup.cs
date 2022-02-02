@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Schedule.Business;
+using Schedule.Core.Entities.Token;
 using Schedule.Core.Helpers;
 using Schedule.database;
 using System;
@@ -29,25 +30,29 @@ namespace Schedule
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-#if DEBUG
-                    options.RequireHttpsMetadata = false;
-#else
-                    options.RequireHttpsMetadata = true;
-#endif
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ClockSkew = TimeSpan.FromHours(Constants.Jwt.Lifetime),
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = Constants.Jwt.Issuer,
-                        ValidAudience = Constants.Jwt.Audience,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Constants.Jwt.Key)),
-                        AuthenticationType = JwtBearerDefaults.AuthenticationScheme
-                    };
-                });
+            var jwtSettings = new JwtSettings();
+            Configuration.GetSection("JwtSettings").Bind(jwtSettings);
+            services.AddSingleton(jwtSettings);
+
+//            services
+//                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//                .AddJwtBearer(options =>
+//                {
+//#if DEBUG
+//                    options.RequireHttpsMetadata = false;
+//#else
+//                    options.RequireHttpsMetadata = true;
+//#endif
+//                    options.TokenValidationParameters = new TokenValidationParameters
+//                    {
+//                        ClockSkew = TimeSpan.FromHours(Constants.Jwt.Lifetime),
+//                        ValidateIssuerSigningKey = true,
+//                        ValidIssuer = Constants.Jwt.Issuer,
+//                        ValidAudience = Constants.Jwt.Audience,
+//                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Constants.Jwt.Key)),
+//                        AuthenticationType = JwtBearerDefaults.AuthenticationScheme
+//                    };
+//                });
 
             services.AddControllers();
 

@@ -4,8 +4,9 @@ namespace Schedule.Core.DTO.Account
 {
     public class AuthResult
     {
-        public string Token { get; set; }
-        public DateTime ExpiresIn { get; set; }
+        public string JwtToken { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime RefreshExpiry { get; set; }
         public UserDto User { get; set; }
 
     }

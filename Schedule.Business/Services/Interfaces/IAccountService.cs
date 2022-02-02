@@ -1,13 +1,13 @@
-﻿using Schedule.Core.Helpers;
+﻿using Schedule.Core.DTO.Account;
 using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Schedule.Business.Services.Interfaces
 {
     public interface IAccountService : IDisposable
     {
-        JwtSecurityToken CreateToken(IEnumerable<Claim> claims, int activeTime = Constants.Jwt.Lifetime);
+        Task<AuthResult> LoginAsync(AuthDto auth, CancellationToken cancellationToken = default);
+        Task<AuthResult> UpdateRefreshTokenAsync(AuthResult tokenPair, CancellationToken cancellationToken = default);
     }
 }
