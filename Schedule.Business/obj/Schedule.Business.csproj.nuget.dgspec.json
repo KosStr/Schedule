@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[6.3.0, )"
             },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.2, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.15.1, )"

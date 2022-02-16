@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JiTm/ZSw3IVefbekalanOviS+l2zSMvCnbat1wqlvyK8EXacPGN+8ASza9XBUtdcf6D2s5htJQ49Yt3wy94tFg==",
+  "dgSpecHash": "zhBhygmr/lLwsMxv/teScjl4KEWS+J8n8AW1X8BpJp4FMKHhjUZI1kVdfIWCDIUeYb03ncEZ3mxdkQnzbPCtvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule\\Schedule.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
+    "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.1\\microsoft.aspnetcore.authentication.jwtbearer.3.1.1.nupkg.sha512",
     "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

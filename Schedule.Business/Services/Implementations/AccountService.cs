@@ -2,8 +2,10 @@
 using Schedule.Business.Managers.Base;
 using Schedule.Business.Services.Interfaces;
 using Schedule.Core.DTO.Account;
+using Schedule.Core.DTO.Token;
 using Schedule.Core.Entities.Account;
 using Schedule.Core.Entities.Token;
+using Schedule.Core.Enums;
 using Schedule.Database.Repository.Interfaces;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -35,12 +37,29 @@ namespace Schedule.Business.Services.Implementations
 
         #region Interface Members
 
-        public async Task<AuthResult> LoginAsync(AuthDto auth, CancellationToken cancellationToken = default)
+        public async Task RegisterAsync(RegisterDto registerModel, CancellationToken cancellationToken = default)
         {
-            string accessString = "";
-            string refreshString = "";
-            var lifeTimeUpdate = DateTime.UtcNow.AddMinutes(_jwtSettings.RefreshLifetime);
+            if (await UnitOfWork.Repository<User>().ExistAsync(i => i.Email == registerModel.Email, cancellationToken))
+            {
+                throw new Exception("User already exist"); // User already exist ex
+            }
 
+            await UnitOfWork.Repository<User>().CreateAsync(new User
+            {
+                Email = registerModel.Email,
+                FirstName = registerModel.FirstName,
+                LastName = registerModel.LastName,
+                Phone = registerModel.Phone,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerModel.Password),
+            }, cancellationToken);
+
+            // Send Email
+
+            //await UnitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<AuthResultDto> LoginAsync(AuthDto auth, CancellationToken cancellationToken = default)
+        {
             var user = await UnitOfWork.Repository<User>().GetFirstAsync(u => u.Email == auth.Email,
                 u => new UserDto
                 {
@@ -50,47 +69,46 @@ namespace Schedule.Business.Services.Implementations
                     Role = u.Role
                 }, cancellationToken);
 
-            if (user == null)
+            if (user == null && !VerifyPassword(user.Id))
             {
-                // item not found exception <T>
-                throw new Exception();
+                return AuthResultDto.Fail;
+            }
+
+            var refreshString = GenerateRefreshToken();
+            var lifeTimeUpdate = DateTime.UtcNow.AddMinutes(_jwtSettings.RefreshLifetime);
+
+            var currentRefresh = await UnitOfWork.Repository<RefreshToken>().GetFirstAsync(rt => rt.UserId == user.Id, rt => rt, cancellationToken);
+
+            if (currentRefresh != null)
+            {
+                currentRefresh.Update(refreshString, lifeTimeUpdate);
+                await UnitOfWork.Repository<RefreshToken>().UpdateAsync(currentRefresh);
             }
             else
             {
-                accessString = GenereteAccessToken(user);
-                refreshString = GenerateRefreshToken();
-                var currentRefresh = await UnitOfWork.Repository<RefreshToken>().GetFirstAsync(rt => rt.UserId == user.Id, rt => rt, cancellationToken);
-
-                if (currentRefresh != null)
+                await UnitOfWork.Repository<RefreshToken>().CreateAsync(new RefreshToken
                 {
-                    currentRefresh.Update(refreshString, lifeTimeUpdate);
-                    await UnitOfWork.Repository<RefreshToken>().UpdateAsync(currentRefresh);
-                }
-                else
-                {
-                    await UnitOfWork.Repository<RefreshToken>().CreateAsync(new RefreshToken
-                    {
-                        Token = refreshString,
-                        UserId = user.Id,
-                        ExpiryTime = lifeTimeUpdate
-                    });
-                }
+                    Token = refreshString,
+                    UserId = user.Id,
+                    ExpiryTime = lifeTimeUpdate
+                });
             }
 
             await UnitOfWork.SaveChangesAsync();
-            return new AuthResult
+            return new AuthResultDto
             {
-                JwtToken = accessString,
+                Status = RequestStatus.Success,
+                JwtToken = GenereteAccessToken(user),
                 RefreshToken = refreshString,
                 RefreshExpiry = lifeTimeUpdate
             };
         }
 
-        public async Task<AuthResult> UpdateRefreshTokenAsync(AuthResult tokenPair, CancellationToken cancellationToken = default)
+        public async Task<AuthResultDto> UpdateRefreshTokenAsync(TokenUpdateDto tokenPair, CancellationToken cancellationToken = default)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
-            var claimsPrincipal = tokenHandler.ValidateToken(tokenPair.JwtToken, new TokenValidationParameters
+            var claimsPrincipal = tokenHandler.ValidateToken(tokenPair.AccessToken, new TokenValidationParameters
             {
                 ValidIssuer = _jwtSettings.Issuer,
                 ValidAudience = _jwtSettings.Audience,
@@ -134,15 +152,16 @@ namespace Schedule.Business.Services.Implementations
             return await Authenticate(userInstance, claimsPrincipal.Claims.ToArray());
         }
 
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         #region Helpers
+
+        private async bool VerifyPassword(Guid userId)
+        {
+            var password = await UnitOfWork.Repository<User>().GetFirstAsync(i => i.Id == userId, i => i.PasswordHash);
+            if(BCrypt.Net.BCrypt.Verify())
+            return true;
+        }
 
         private void ValidateTokens(JwtSecurityToken jwt, RefreshToken refresh, Guid userId)
         {
@@ -162,7 +181,7 @@ namespace Schedule.Business.Services.Implementations
             }
         }
 
-        private async Task<AuthResult> Authenticate(UserDto user, Claim[] claims)
+        private async Task<AuthResultDto> Authenticate(UserDto user, Claim[] claims)
         {
             var accessString = GenereteAccessToken(user, claims);
             var refreshString = GenerateRefreshToken();
@@ -180,8 +199,9 @@ namespace Schedule.Business.Services.Implementations
                 throw new SecurityTokenException("Refresh token doesn't match user.");
             }
 
-            return new AuthResult
+            return new AuthResultDto
             {
+                Status = RequestStatus.Success,
                 JwtToken = accessString,
                 RefreshToken = refreshString,
                 RefreshExpiry = lifeTimeUpdate

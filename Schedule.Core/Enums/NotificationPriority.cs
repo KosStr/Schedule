@@ -1,6 +1,6 @@
 ﻿namespace Schedule.Core.Enums
 {
-    public enum NotificationPriority
+    public enum NotificationPriority : byte
     {
         Low = 1,
         Medium = 2,
