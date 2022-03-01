@@ -11,3 +11,16 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.csproj.CopyComplete
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.pdb
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\bin\Debug\netcoreapp3.1\Schedule.Database.deps.json
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\bin\Debug\netcoreapp3.1\Schedule.Database.dll
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\bin\Debug\netcoreapp3.1\Schedule.Database.pdb
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\bin\Debug\netcoreapp3.1\Schedule.Core.dll
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\bin\Debug\netcoreapp3.1\Schedule.Core.pdb
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.csproj.AssemblyReference.cache
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.AssemblyInfoInputs.cache
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.AssemblyInfo.cs
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.csproj.CoreCompileInputs.cache
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.csproj.CopyComplete
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.dll
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.pdb

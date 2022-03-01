@@ -6178,19 +6178,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\": {}
+    "C:\\Users\\gradk\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj",
+      "projectUniqueName": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj",
       "projectName": "Schedule.Business",
-      "projectPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj",
-      "packagesPath": "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\obj\\",
+      "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj",
+      "packagesPath": "C:\\Users\\gradk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kostiantyn_Strusovsk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gradk\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6204,8 +6204,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {
-              "projectPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj"
+            "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {
+              "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj"
             }
           }
         }
@@ -6264,7 +6264,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
