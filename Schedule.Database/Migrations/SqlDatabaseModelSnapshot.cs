@@ -25,6 +25,9 @@ namespace Schedule.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("VARBINARY(16)");
 
+                    b.Property<DateTime>("ActivatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME");
@@ -36,6 +39,12 @@ namespace Schedule.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
+
+                    b.Property<string>("EmailToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EmailTokenLifetime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
                         .IsRequired()

@@ -15,6 +15,9 @@ namespace Schedule.Core.Entities.Account
         public string Phone { get; set; }
         public Role Role { get; set; }
         public string PasswordHash { get; set; }
+        public DateTime ActivatedDate { get; set; }
+        public string EmailToken { get; set; }
+        public DateTime EmailTokenLifetime { get; set; }
         public Guid GroupId { get; set; }
         public Guid TokenId { get; set; }
         public virtual Group Group { get; set; }
@@ -22,5 +25,10 @@ namespace Schedule.Core.Entities.Account
         public virtual ICollection<Mark> Marks { get; set; }
         public virtual ICollection<TeacherLessons> Lessons { get; set; }
 
+        public void SetEmailToken(string emailToken, int hoursLifetime)
+        {
+            EmailToken = emailToken;
+            EmailTokenLifetime = DateTime.Now.AddHours(hoursLifetime);
+        }
     }
 }

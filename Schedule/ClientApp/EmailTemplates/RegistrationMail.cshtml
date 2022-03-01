@@ -1,0 +1,12 @@
+﻿@model Schedule.Core.DTO.Email.ConfirmationMail
+
+@{
+    Layout = null;
+    var verifyLink = $"https://localhost:4200/confirm/{Model.VerificationLink}";
+}
+
+<div>
+    <h1>Dear, @Model.FirstName @Model.LastName! Welcome to Schedule application!</h1>
+    <h2>For completing the registration you need to push the link below:</h2>
+    <a href=@verifyLink>Confirm email</a>
+</div>

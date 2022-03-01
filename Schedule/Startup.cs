@@ -8,10 +8,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Schedule.Business;
+using Schedule.Core.DTO.Email;
 using Schedule.Core.Entities.Token;
-using Schedule.Core.Helpers;
 using Schedule.database;
 using System;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 
 namespace Schedule
@@ -34,25 +36,9 @@ namespace Schedule
             Configuration.GetSection("JwtSettings").Bind(jwtSettings);
             services.AddSingleton(jwtSettings);
 
-//            services
-//                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//                .AddJwtBearer(options =>
-//                {
-//#if DEBUG
-//                    options.RequireHttpsMetadata = false;
-//#else
-//                    options.RequireHttpsMetadata = true;
-//#endif
-//                    options.TokenValidationParameters = new TokenValidationParameters
-//                    {
-//                        ClockSkew = TimeSpan.FromHours(Constants.Jwt.Lifetime),
-//                        ValidateIssuerSigningKey = true,
-//                        ValidIssuer = Constants.Jwt.Issuer,
-//                        ValidAudience = Constants.Jwt.Audience,
-//                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Constants.Jwt.Key)),
-//                        AuthenticationType = JwtBearerDefaults.AuthenticationScheme
-//                    };
-//                });
+            var emailSettings = new EmailSettings();
+            Configuration.GetSection("EmailSettings").Bind(emailSettings);
+            services.AddSingleton(emailSettings);
 
             services.AddControllers();
 
@@ -64,15 +50,54 @@ namespace Schedule
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials()
-                    .WithOrigins(Configuration[""]);
+                    .WithOrigins(Configuration["Client:BaseUrl"]);
                 });
             });
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                // if false then SSL won't be using while requesting;
+                options.RequireHttpsMetadata = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero,
+
+                    ValidAudience = jwtSettings.Audience,
+                    ValidIssuer = jwtSettings.Issuer,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
+                };
+            });
+
+            services
+               .AddFluentEmail(emailSettings.From)
+               .AddRazorRenderer()
+               .AddSmtpSender(new SmtpClient(emailSettings.SmtpSettings.Host, emailSettings.SmtpSettings.Port)
+               {
+                   Credentials = new NetworkCredential(emailSettings.SmtpSettings.SenderCredentials.SenderName, emailSettings.SmtpSettings.SenderCredentials.Password),
+                   EnableSsl = true
+               });
+
+            services.AddHttpContextAccessor(); // for Razor pages;
 
             services.AddDbContext<SqlDatabase>(options =>
             {
                 options.EnableDetailedErrors(true);
                 options.UseSqlServer(Configuration["Database:ConnectionString"]);
             }, ServiceLifetime.Scoped, ServiceLifetime.Scoped);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ForecastAPI", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -96,8 +121,9 @@ namespace Schedule
             });
         }
 
-        //public void ConfigureContainer(ContainerBuilder builder)
-        //{ 
-        //}
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new BusinessModule());
+        }
     }
 }

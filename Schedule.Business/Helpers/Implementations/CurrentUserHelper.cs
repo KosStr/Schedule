@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Schedule.Business.Services.Implementations
 {
-    internal class CurrentUserService
+    internal class CurrentUserHelper
     {
     }
 }

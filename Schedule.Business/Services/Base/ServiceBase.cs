@@ -1,7 +1,7 @@
 ﻿using Schedule.Database.Repository.Interfaces;
 using System;
 
-namespace Schedule.Business.Managers.Base
+namespace Schedule.Business.Services.Base
 {
     internal abstract class ServiceBase : IDisposable
     {

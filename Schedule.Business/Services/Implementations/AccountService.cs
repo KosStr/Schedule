@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using Schedule.Business.Managers.Base;
+using Schedule.Business.Helpers.Interfaces;
+using Schedule.Business.Services.Base;
 using Schedule.Business.Services.Interfaces;
 using Schedule.Core.DTO.Account;
 using Schedule.Core.DTO.Token;
@@ -23,14 +24,16 @@ namespace Schedule.Business.Services.Implementations
         #region Properties
 
         private readonly JwtSettings _jwtSettings;
+        private readonly IEmailHelper _emailHelper;
 
         #endregion
 
         #region Constructor
 
-        public AccountService(IUnitOfWork unitOfWork, JwtSettings jwtSettings) : base(unitOfWork)
+        public AccountService(IUnitOfWork unitOfWork, JwtSettings jwtSettings, IEmailHelper emailHelper) : base(unitOfWork)
         {
             _jwtSettings = jwtSettings;
+            _emailHelper = emailHelper;
         }
 
         #endregion
@@ -41,7 +44,8 @@ namespace Schedule.Business.Services.Implementations
         {
             if (await UnitOfWork.Repository<User>().ExistAsync(i => i.Email == registerModel.Email, cancellationToken))
             {
-                throw new Exception("User already exist"); // User already exist ex
+                // User already exist ex;
+                throw new Exception("User already exist");
             }
 
             await UnitOfWork.Repository<User>().CreateAsync(new User
@@ -53,9 +57,26 @@ namespace Schedule.Business.Services.Implementations
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerModel.Password),
             }, cancellationToken);
 
-            // Send Email
+            await UnitOfWork.SaveChangesAsync();
 
-            //await UnitOfWork.SaveChangesAsync();
+            await _emailHelper.SendRegistrationEmailAsync(new UserDto
+            {
+                Email = registerModel.Email,
+                FirstName = registerModel.FirstName,
+                LastName = registerModel.LastName,
+            });
+        }
+
+        public async Task ConfirmRegistrationAsync(string registrationToken, CancellationToken cancellationToken = default)
+        {
+            var user = await UnitOfWork.Repository<User>().GetFirstAsync(i => i.EmailToken == registrationToken, i => i, cancellationToken);
+            if (user == null)
+            {
+                // add custom exception;
+                throw new Exception("Token is invalid");
+            }
+            user.ActivatedDate = DateTime.UtcNow;
+            await UnitOfWork.SaveChangesAsync();
         }
 
         public async Task<AuthResultDto> LoginAsync(AuthDto auth, CancellationToken cancellationToken = default)
@@ -69,7 +90,7 @@ namespace Schedule.Business.Services.Implementations
                     Role = u.Role
                 }, cancellationToken);
 
-            if (user == null && !VerifyPassword(user.Id))
+            if (user == null && !await VerifyPasswordAsync(user.Email, auth.Password))
             {
                 return AuthResultDto.Fail;
             }
@@ -95,6 +116,7 @@ namespace Schedule.Business.Services.Implementations
             }
 
             await UnitOfWork.SaveChangesAsync();
+
             return new AuthResultDto
             {
                 Status = RequestStatus.Success,
@@ -156,11 +178,10 @@ namespace Schedule.Business.Services.Implementations
 
         #region Helpers
 
-        private async bool VerifyPassword(Guid userId)
+        private async Task<bool> VerifyPasswordAsync(string email, string password)
         {
-            var password = await UnitOfWork.Repository<User>().GetFirstAsync(i => i.Id == userId, i => i.PasswordHash);
-            if(BCrypt.Net.BCrypt.Verify())
-            return true;
+            var userPassword = await UnitOfWork.Repository<User>().GetFirstAsync(i => i.Email == email, i => i.PasswordHash);
+            return BCrypt.Net.BCrypt.Verify(password, userPassword);
         }
 
         private void ValidateTokens(JwtSecurityToken jwt, RefreshToken refresh, Guid userId)
@@ -231,7 +252,6 @@ namespace Schedule.Business.Services.Implementations
 
         private string GenerateRefreshToken()
         {
-            // Signature
             var randomNumber = new byte[32];
             using (var rng = RandomNumberGenerator.Create())
             {
