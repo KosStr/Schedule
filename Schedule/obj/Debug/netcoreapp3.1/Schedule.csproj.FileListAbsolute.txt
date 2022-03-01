@@ -55,6 +55,7 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\obj\Debug\ne
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Autofac.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+<<<<<<< Updated upstream
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
@@ -131,3 +132,9 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\ne
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+=======
+>>>>>>> Stashed changes
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
