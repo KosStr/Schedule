@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = Schedule.Core
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\
+=======
+build_property.ProjectDir = C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.Core\
+>>>>>>> origin/jwt-auth

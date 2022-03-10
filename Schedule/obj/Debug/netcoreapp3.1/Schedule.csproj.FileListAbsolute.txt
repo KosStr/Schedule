@@ -55,6 +55,7 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\obj\Debug\ne
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Autofac.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+<<<<<<< Updated upstream
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
@@ -131,6 +132,7 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\ne
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+<<<<<<< HEAD
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.csproj.AssemblyReference.cache
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.AssemblyInfoInputs.cache
@@ -140,6 +142,15 @@ C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Sch
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.RazorAssemblyInfo.cache
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.RazorAssemblyInfo.cs
+=======
+=======
+>>>>>>> Stashed changes
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.csproj.AssemblyReference.cache
+>>>>>>> origin/jwt-auth
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.dll
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.pdb
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -257,6 +268,17 @@ C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Sch
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Schedule.Business.pdb
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Schedule.Database.pdb
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\bin\Debug\netcoreapp3.1\Schedule.Core.pdb
+<<<<<<< HEAD
+=======
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.AssemblyInfoInputs.cache
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.AssemblyInfo.cs
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.csproj.CoreCompileInputs.cache
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.RazorAssemblyInfo.cache
+C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\Schedule.RazorAssemblyInfo.cs
+>>>>>>> origin/jwt-auth
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\staticwebassets\Schedule.StaticWebAssets.Manifest.cache
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\staticwebassets\Schedule.StaticWebAssets.xml
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule\obj\Debug\netcoreapp3.1\scopedcss\bundle\Schedule.styles.css

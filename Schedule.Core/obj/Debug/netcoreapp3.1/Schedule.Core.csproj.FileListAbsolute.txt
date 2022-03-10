@@ -10,13 +10,19 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.core\obj\Deb
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.pdb
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.csproj.AssemblyReference.cache
+=======
+>>>>>>> origin/jwt-auth
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\bin\Debug\netcoreapp3.1\Schedule.Core.deps.json
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\bin\Debug\netcoreapp3.1\Schedule.Core.runtimeconfig.json
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\bin\Debug\netcoreapp3.1\Schedule.Core.runtimeconfig.dev.json
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\bin\Debug\netcoreapp3.1\Schedule.Core.dll
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\bin\Debug\netcoreapp3.1\Schedule.Core.pdb
+<<<<<<< HEAD
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.csproj.AssemblyReference.cache
+=======
+>>>>>>> origin/jwt-auth
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.AssemblyInfoInputs.cache
 C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.core\obj\Debug\netcoreapp3.1\Schedule.Core.AssemblyInfo.cs
