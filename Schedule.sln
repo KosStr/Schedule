@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32014.148
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedule", "Schedule\Schedule.csproj", "{BC513BB8-C680-46E0-BC32-3BCDD7F9D1C5}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedule.Database", "Schedule.database\Schedule.Database.csproj", "{9BBA24BE-E96B-45FE-8435-75062B6214CA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schedule.Business", "Schedule.Business\Schedule.Business.csproj", "{F3AEA13B-B131-4875-808E-DE33583891BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8813974D-919E-4506-90DD-39D9A07787A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0755875C-82AD-41DA-97C2-F77F7E4BECFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{F3AEA13B-B131-4875-808E-DE33583891BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3AEA13B-B131-4875-808E-DE33583891BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3AEA13B-B131-4875-808E-DE33583891BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8813974D-919E-4506-90DD-39D9A07787A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8813974D-919E-4506-90DD-39D9A07787A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8813974D-919E-4506-90DD-39D9A07787A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8813974D-919E-4506-90DD-39D9A07787A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{E3F2085A-0C49-473D-9EBC-CF968E3BDBA0} = {23FEA23D-05B8-444B-B081-C1DA0A8B248E}
 		{9BBA24BE-E96B-45FE-8435-75062B6214CA} = {B07B398F-C274-4DE4-B1A9-0E41419B93A9}
 		{F3AEA13B-B131-4875-808E-DE33583891BE} = {8B3B3B89-BFAA-4AB2-BE8E-27CCE4C227D0}
+		{8813974D-919E-4506-90DD-39D9A07787A4} = {0755875C-82AD-41DA-97C2-F77F7E4BECFC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF1750DF-FCB0-4350-B413-5D22BD7298A3}
