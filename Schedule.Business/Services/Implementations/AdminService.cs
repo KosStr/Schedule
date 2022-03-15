@@ -1,5 +1,7 @@
 ﻿using Schedule.Business.Services.Base;
 using Schedule.Business.Services.Interfaces;
+using Schedule.Core.DTO.Account;
+using Schedule.Core.DTO.General;
 using Schedule.Core.Entities.Account;
 using Schedule.Core.Entities.General;
 using Schedule.Database.Repository.Interfaces;
@@ -24,9 +26,18 @@ namespace Schedule.Business.Services.Implementations
 
         #region Interface Members
 
-        public Task<Group> AddGroup()
+        public async Task AddGroup(GroupDto group)
         {
-            throw new NotImplementedException();
+            if (group != null)
+            {
+                await UnitOfWork.Repository<Group>().CreateAsync(new Group
+                {
+                    Name = group.Name,
+                    Grade = group.Grade,
+                });
+
+                await UnitOfWork.SaveChangesAsync();
+            }
         }
 
         public Task<Lesson> AddLesson()
@@ -34,14 +45,32 @@ namespace Schedule.Business.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public Task<Notification> AddNotification()
+        public Task<Notification> AddNotification(NotificationDto notification)
         {
-            throw new NotImplementedException();
+            if (group != null)
+            {
+                await UnitOfWork.Repository<Group>().CreateAsync(new Group
+                {
+                    Name = group.Name,
+                    Grade = group.Grade,
+                });
+
+                await UnitOfWork.SaveChangesAsync();
+            }
         }
 
-        public Task<User> AddUser()
+        public Task<User> AddUser(UserDto user)
         {
-            throw new NotImplementedException();
+            if (group != null)
+            {
+                await UnitOfWork.Repository<Group>().CreateAsync(new Group
+                {
+                    Name = group.Name,
+                    Grade = group.Grade,
+                });
+
+                await UnitOfWork.SaveChangesAsync();
+            }
         }
 
         public Task DeleteGroup(Guid id)

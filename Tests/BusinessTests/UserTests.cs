@@ -38,9 +38,10 @@ namespace Tests.BusinessTests
         #region Tests
 
         [Fact]
-        public async Task TestGetFirstAsync()
+        public async Task TestExistAsync()
         {
-            throw new NotImplementedException();
+            var doesUserExist = await UserRepository.ExistAsync(i => i.Email == "stepan@selo.com");
+            Assert.True(doesUserExist);
         }
 
         #endregion
@@ -52,7 +53,7 @@ namespace Tests.BusinessTests
             CorrectUser = new User
             {
                 Id = Guid.Parse("11111111111111111111111111111111"),
-                Email = "user@gmail.com",
+                Email = "stepan@selo.com",
                 Phone = "0500000000",
                 FirstName = "Stepan",
                 LastName = "Selian",

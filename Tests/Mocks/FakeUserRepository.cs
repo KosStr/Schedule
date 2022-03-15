@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tests.Mocks
 {
@@ -30,15 +31,10 @@ namespace Tests.Mocks
             throw new NotImplementedException();
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<bool> ExistAsync(Expression<Func<User, bool>> condition, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
-        }
+            return _users.AsQueryable().AnyAsync(condition);
+        } 
 
         public Task<IEnumerable<TResult>> GetAsync<TResult>(Expression<Func<User, bool>> condition, Expression<Func<User, TResult>> selector, CancellationToken cancellationToken = default)
         {
@@ -61,6 +57,11 @@ namespace Tests.Mocks
         }
 
         public Task UpdateManyAsync(IEnumerable<User> entities, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
         {
             throw new NotImplementedException();
         }

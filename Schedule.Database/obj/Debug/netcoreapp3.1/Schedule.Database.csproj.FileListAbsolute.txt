@@ -23,3 +23,4 @@ C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.csproj.CopyComplete
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.dll
 C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.pdb
+C:\Users\Kostiantyn_Strusovsk\source\repos\KosStr\Schedule\Schedule.database\obj\Debug\netcoreapp3.1\Schedule.Database.csproj.AssemblyReference.cache
