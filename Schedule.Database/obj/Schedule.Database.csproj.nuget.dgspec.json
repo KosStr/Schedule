@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {}
+    "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj": {
+    "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj",
         "projectName": "Schedule.Core",
-        "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj",
-        "packagesPath": "C:\\Users\\gradk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.core\\obj\\",
+        "projectPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj",
+        "packagesPath": "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gradk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kostiantyn_Strusovsk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,21 +88,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {
+    "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj",
+        "projectUniqueName": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj",
         "projectName": "Schedule.Database",
-        "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj",
-        "packagesPath": "C:\\Users\\gradk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\obj\\",
+        "projectPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj",
+        "packagesPath": "C:\\Users\\Kostiantyn_Strusovsk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gradk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kostiantyn_Strusovsk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -116,8 +116,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj": {
-                "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj"
+              "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj": {
+                "projectPath": "C:\\Users\\Kostiantyn_Strusovsk\\source\\repos\\KosStr\\Schedule\\Schedule.core\\Schedule.Core.csproj"
               }
             }
           }
@@ -152,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
