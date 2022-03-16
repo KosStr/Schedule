@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tests.BusinessTests
+namespace Schedule.Business.Services.Interfaces
 {
-    class UserServiceTests
+    internal interface IStudentService
     {
     }
 }

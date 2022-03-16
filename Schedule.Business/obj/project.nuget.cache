@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q0Fr/eNrBujvU4xz1gT7uURg+MCSCi5dkl4pnBjcx0iMvdI4tPysrZmv/gd7uAFmt0uJ025xNXPv4bMagzDA3g==",
+  "dgSpecHash": "HltVTK77itRTKmZHdsFlrZoUSN+V6V/LbpGvqMq5h3jWj+989afyFW6K3juq4IkdhvSpmsmxV/2Wba1eDLjqnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj",
+  "projectFilePath": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gradk\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
     "C:\\Users\\gradk\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tests.Mocks
+namespace Schedule.Business.Services.Interfaces
 {
-     public class FakeRepository
+    internal interface ITeacherService
     {
     }
 }

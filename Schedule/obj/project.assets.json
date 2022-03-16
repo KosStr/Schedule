@@ -6787,11 +6787,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule\\Schedule.csproj",
+      "projectUniqueName": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule\\Schedule.csproj",
       "projectName": "Schedule",
-      "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule\\Schedule.csproj",
+      "projectPath": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule\\Schedule.csproj",
       "packagesPath": "C:\\Users\\gradk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule\\obj\\",
+      "outputPath": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gradk\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6808,11 +6808,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj": {
-              "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj"
+            "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj": {
+              "projectPath": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule.Business\\Schedule.Business.csproj"
             },
-            "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {
-              "projectPath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj"
+            "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj": {
+              "projectPath": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj"
             }
           }
         }

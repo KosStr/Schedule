@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "diS6AC7ALBGYiMxNajdMKSnl3mnBJTuzseyaUDgTZTbX8RO30Vpe7Dnt9O56HBvfSckmLfNNFOHTVtwGazMIag==",
+  "dgSpecHash": "e9grAZxoqyPb2NOXcElAi5WCgJhNDniTjlM0llW5jgPbwXMn7m+Zfop/nXsi1r+YiEfkexQgEOkK6HXZeTu70g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule\\Schedule.csproj",
+  "projectFilePath": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule\\Schedule.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gradk\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
     "C:\\Users\\gradk\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.2.0\\autofac.extensions.dependencyinjection.7.2.0.nupkg.sha512",

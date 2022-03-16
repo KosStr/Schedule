@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tPpTlZ2JM6LkQVfzG5FSYQk1yBsoXeiETArxTClZeQYa73CZ8wQ8WrlOmE1I9CtLaQRjncWKUSLfPFr8RCgnzg==",
+  "dgSpecHash": "uQy1Lm7wCzQ8hHKEsZFo3WgYb5dD42EOk6pKZUcMlknlgitqJyexTfxYRbQf8rVT+RKIJ61uqAJI6ZkV65xTdQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gradk\\Source\\Repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj",
+  "projectFilePath": "C:\\Users\\gradk\\source\\repos\\KosStr\\Schedule\\Schedule.database\\Schedule.Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gradk\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
     "C:\\Users\\gradk\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
