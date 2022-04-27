@@ -12,6 +12,7 @@ using Schedule.Business;
 using Schedule.Core.DTO.Email;
 using Schedule.Core.Entities.Token;
 using Schedule.database;
+using Schedule.Database;
 using System;
 using System.Net;
 using System.Net.Mail;

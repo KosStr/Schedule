@@ -40,6 +40,11 @@ namespace Schedule.Business.Services.Implementations
             }
         }
 
+        public Task<Group> AddGroup()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Lesson> AddLesson()
         {
             throw new NotImplementedException();
@@ -47,30 +52,42 @@ namespace Schedule.Business.Services.Implementations
 
         public Task<Notification> AddNotification(NotificationDto notification)
         {
-            if (group != null)
-            {
-                await UnitOfWork.Repository<Group>().CreateAsync(new Group
-                {
-                    Name = group.Name,
-                    Grade = group.Grade,
-                });
+            //if (group != null)
+            //{
+            //    await UnitOfWork.Repository<Group>().CreateAsync(new Group
+            //    {
+            //        Name = group.Name,
+            //        Grade = group.Grade,
+            //    });
 
-                await UnitOfWork.SaveChangesAsync();
-            }
+            //    await UnitOfWork.SaveChangesAsync();
+            //}
+            throw new NotImplementedException();
+        }
+
+        public Task<Notification> AddNotification()
+        {
+            throw new NotImplementedException();
         }
 
         public Task<User> AddUser(UserDto user)
         {
-            if (group != null)
-            {
-                await UnitOfWork.Repository<Group>().CreateAsync(new Group
-                {
-                    Name = group.Name,
-                    Grade = group.Grade,
-                });
+            //if (group != null)
+            //{
+            //    await UnitOfWork.Repository<Group>().CreateAsync(new Group
+            //    {
+            //        Name = group.Name,
+            //        Grade = group.Grade,
+            //    });
 
-                await UnitOfWork.SaveChangesAsync();
-            }
+            //    await UnitOfWork.SaveChangesAsync();
+            //}
+            throw new NotImplementedException();
+        }
+
+        public Task<User> AddUser()
+        {
+            throw new NotImplementedException();
         }
 
         public Task DeleteGroup(Guid id)

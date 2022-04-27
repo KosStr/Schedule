@@ -1,5 +1,6 @@
 ﻿using Moq;
 using Schedule.Core.Entities.Account;
+using Schedule.Database.Repository.Implementations.Base;
 using Schedule.Database.Repository.Interfaces;
 using Schedule.Database.Repository.Interfaces.Base;
 using System;
@@ -13,7 +14,7 @@ namespace Tests.BusinessTests
     {
         #region Properties
 
-        public ISqlRepository<User> UserRepository;
+        public SqlRepository<User> UserRepository;
         public IUnitOfWork Context;
         public User CorrectUser;
 
@@ -23,12 +24,12 @@ namespace Tests.BusinessTests
 
         public UserTests()
         {
-            UserRepository = new FakeUserRepository();
+            UserRepository = new SqlRepository<User>(new Mock);
 
-            var unitOfWork = new Mock<IUnitOfWork>();
-            unitOfWork.Setup(x => x.SaveChangesAsync(default));
-            unitOfWork.Setup(x => x.Repository<User>()).Returns(UserRepository);
-            Context = unitOfWork.Object;
+            //var unitOfWork = new Mock<IUnitOfWork>();
+            //unitOfWork.Setup(x => x.SaveChangesAsync(default));
+            //unitOfWork.Setup(x => x.Repository<User>()).Returns(UserRepository);
+            //Context = unitOfWork.Object;
 
             CreateCorrectUser();
         }
