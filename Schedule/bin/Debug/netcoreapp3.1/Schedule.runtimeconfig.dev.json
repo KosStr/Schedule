@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\gradk\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\gradk\\.nuget\\packages"
-    ]
-  }
-}

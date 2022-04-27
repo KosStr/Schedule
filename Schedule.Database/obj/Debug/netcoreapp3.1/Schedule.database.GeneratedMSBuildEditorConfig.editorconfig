@@ -1,7 +1,0 @@
-is_global = true
-build_property.RootNamespace = Schedule.Database
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.database\
-=======
-build_property.ProjectDir = C:\Users\gradk\Source\Repos\KosStr\Schedule\Schedule.Database\
->>>>>>> origin/jwt-auth
