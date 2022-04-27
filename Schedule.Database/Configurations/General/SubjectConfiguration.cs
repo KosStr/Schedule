@@ -4,9 +4,9 @@ using Schedule.database.Configurations.Base;
 
 namespace Schedule.database.Configurations.General
 {
-    internal class GroupConfiguration : AuditEntityConfiguration<Group>
+    internal class SubjectConfiguration : AuditEntityConfiguration<Subject>
     {
-        public override void Configure(EntityTypeBuilder<Group> builder)
+        public override void Configure(EntityTypeBuilder<Subject> builder)
         {
             builder
                 .Property(x => x.Name)
@@ -14,12 +14,8 @@ namespace Schedule.database.Configurations.General
                 .IsRequired();
 
             builder
-                .HasMany(x => x.Appointments)
-                .WithOne(x => x.Group);
-
-            builder
-                .HasMany(x => x.Users)
-                .WithOne(x => x.Group);
+                .HasMany(x => x.Teachers)
+                .WithOne(x => x.Subject);
 
             base.Configure(builder);
         }

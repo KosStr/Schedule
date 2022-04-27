@@ -4,20 +4,20 @@ using Schedule.database.Configurations.Base;
 
 namespace Schedule.database.Configurations.General
 {
-    internal class TeacherLessonsConfiguration : Configuration<TeacherLessons>
+    internal class TeacherSubjectsConfiguration : Configuration<TeacherSubjects>
     {
-        public override void Configure(EntityTypeBuilder<TeacherLessons> builder)
+        public override void Configure(EntityTypeBuilder<TeacherSubjects> builder)
         {
             builder
                 .HasKey(x => new { x.TeacherId, x.LessonId });
 
             builder
                 .HasOne(x => x.Teacher)
-                .WithMany(x => x.Lessons)
+                .WithMany(x => x.Subjects)
                 .HasForeignKey(x => x.TeacherId);
 
             builder
-                .HasOne(x => x.Lesson)
+                .HasOne(x => x.Subject)
                 .WithMany(x => x.Teachers)
                 .HasForeignKey(x => x.LessonId);
         }

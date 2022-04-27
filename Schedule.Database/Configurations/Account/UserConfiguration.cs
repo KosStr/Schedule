@@ -54,12 +54,20 @@ namespace Schedule.database.Configurations.Account
                 .HasForeignKey(i => i.GroupId);
 
             builder
-                .HasMany(x => x.Marks)
+                .HasMany(x => x.Grades)
                 .WithOne(x => x.Student);
 
             builder
-                .HasMany(x => x.Lessons)
+                .HasMany(x => x.Subjects)
                 .WithOne(x => x.Teacher);
+
+            builder
+                .HasMany(x => x.Notifications)
+                .WithOne(x => x.User);
+
+            builder
+                .HasMany(x => x.Chats)
+                .WithOne(x => x.User);
 
             base.Configure(builder);
         }

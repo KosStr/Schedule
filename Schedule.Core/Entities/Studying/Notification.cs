@@ -11,6 +11,7 @@ namespace Schedule.Core.Entities.General
         public DateTime DueDate { get; set; }
         public string Message { get; set; }
         public NotificationPriority Priority { get; set; }
-        public virtual ICollection<GroupNotifications> Groups { get; set; }
+        public NotificationType Type { get; set; }
+        public virtual ICollection<UserNotifications> Users { get; set; }
     }
 }

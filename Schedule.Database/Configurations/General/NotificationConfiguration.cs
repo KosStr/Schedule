@@ -31,7 +31,11 @@ namespace Schedule.database.Configurations.General
                 .HasDefaultValue(NotificationPriority.Low);
 
             builder
-                .HasMany(i => i.Groups)
+                .Property(x => x.Type)
+                .HasColumnType("TINYINT");
+
+            builder
+                .HasMany(i => i.Users)
                 .WithOne(i => i.Notification);
 
             base.Configure(builder);
