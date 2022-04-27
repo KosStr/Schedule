@@ -4,21 +4,21 @@ using Schedule.database.Configurations.Base;
 
 namespace Schedule.database.Configurations.General
 {
-    internal class GroupNotificationsConfiguration : Configuration<GroupNotifications>
+    internal class GroupNotificationsConfiguration : Configuration<UserNotifications>
     {
-        public override void Configure(EntityTypeBuilder<GroupNotifications> builder)
+        public override void Configure(EntityTypeBuilder<UserNotifications> builder)
         {
             builder
-                .HasKey(x => new { x.GroupId, x.NotificationId });
+                .HasKey(x => new { x.UsertId, x.NotificationId });
 
             builder
-                .HasOne(x => x.Group)
+                .HasOne(x => x.User)
                 .WithMany(x => x.Notifications)
-                .HasForeignKey(x => x.GroupId);
+                .HasForeignKey(x => x.UsertId);
 
             builder
                 .HasOne(x => x.Notification)
-                .WithMany(x => x.Groups)
+                .WithMany(x => x.Users)
                 .HasForeignKey(x => x.NotificationId);
         }
     }

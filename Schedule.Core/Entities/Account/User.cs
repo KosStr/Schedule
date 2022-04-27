@@ -1,4 +1,5 @@
 ﻿using Schedule.Core.Entities.Base;
+using Schedule.Core.Entities.Chat;
 using Schedule.Core.Entities.General;
 using Schedule.Core.Entities.Token;
 using Schedule.Core.Enums;
@@ -22,8 +23,10 @@ namespace Schedule.Core.Entities.Account
         public Guid TokenId { get; set; }
         public virtual Group Group { get; set; }
         public virtual RefreshToken Token { get; set; }
-        public virtual ICollection<Mark> Marks { get; set; }
-        public virtual ICollection<TeacherLessons> Lessons { get; set; }
+        public virtual ICollection<Grade> Grades { get; set; }
+        public virtual ICollection<TeacherSubjects> Subjects { get; set; }
+        public virtual ICollection<UserNotifications> Notifications { get; set; }
+        public virtual ICollection<UserChats> Chats { get; set; }
 
         public void SetEmailToken(string emailToken, int hoursLifetime)
         {
