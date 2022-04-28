@@ -13,7 +13,7 @@ namespace Schedule.database
 
         public SqlDatabase(DbContextOptions<SqlDatabase> options) : base(options)
         {
-            this.Database.Migrate();
+
         }
 
         #endregion
