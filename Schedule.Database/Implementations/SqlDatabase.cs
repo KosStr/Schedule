@@ -13,12 +13,17 @@ namespace Schedule.database
 
         public SqlDatabase(DbContextOptions<SqlDatabase> options) : base(options)
         {
-            this.Database.Migrate();
+
         }
 
         #endregion
 
         #region Overrides
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
