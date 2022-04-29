@@ -3,14 +3,16 @@ using System.Net.Mail;
 using System.Net;
 using System;
 using Schedule.Core.DTO.Email;
+using Schedule.Core.Entities.Token;
 
 namespace Schedule.Extensions
 {
     public static class EmailExtention
     {
-        public static void AddEmail(this IServiceCollection services, IServiceProvider serviceProvider)
+        public static void AddEmail(this IServiceCollection services)
         {
-            var emailSettings = serviceProvider.GetService<EmailSettings>();
+            var emailSettings = services.BuildServiceProvider()
+                .GetRequiredService<EmailSettings>();
 
             services.AddFluentEmail(emailSettings.From)
                 .AddRazorRenderer()

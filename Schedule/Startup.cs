@@ -13,7 +13,7 @@ namespace Schedule
 {
     public class Startup
     {
-        public Startup(ILogger<Startup> logger, IWebHostEnvironment environment)
+        public Startup(IWebHostEnvironment environment)
         {
             Environment = environment;
 
@@ -24,22 +24,19 @@ namespace Schedule
                 .AddEnvironmentVariables();
 
             this.Configuration = builder.Build();
-            this.logger = logger;
         }
 
         public IConfiguration Configuration { get; }
 
         private IWebHostEnvironment Environment { get; }
 
-        private readonly ILogger logger;
-
-        public void ConfigureServices(IServiceCollection services, IServiceProvider serviceProvider)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddSingletons(Configuration);
             services.AddApplicationCors(Configuration);
-            services.AddJwtAuthentication(serviceProvider);
-            services.AddEmail(serviceProvider);
+            services.AddJwtAuthentication();
+            services.AddEmail();
             services.AddDatabaseContext(Configuration);
             services.AddSwagger();
             services.AddHttpContextAccessor();
@@ -50,15 +47,20 @@ namespace Schedule
         {
             if (env.IsDevelopment())
             {
-                logger.LogInformation("Configuring for Development environment");
                 app.UseDeveloperExceptionPage();
             }
             else
             {
-                logger.LogInformation("Configuring for Production environment");
             }
 
             app.UseMiddlewareHandler();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Schedule-API");
+            });
 
             app.UseHttpsRedirection();
 
