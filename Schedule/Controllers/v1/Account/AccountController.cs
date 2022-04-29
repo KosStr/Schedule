@@ -27,7 +27,11 @@ namespace Schedule.Controllers.v1.Account
         #endregion
 
         #region Actions
-
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <param name="authDto"></param>
+        /// <returns>Access token and logged in user</returns>
         [HttpPost("login")]
         public async Task<IActionResult> LoginAsync([FromBody] AuthDto authDto)
         {
@@ -46,6 +50,11 @@ namespace Schedule.Controllers.v1.Account
             return Ok(new { AccessToken = authResult.JwtToken, User = authResult.User });
         }
 
+        /// <summary>
+        /// Registration
+        /// </summary>
+        /// <param name="registerDto"></param>
+        /// <returns>Ok</returns>
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterDto registerDto)
         {
@@ -53,6 +62,11 @@ namespace Schedule.Controllers.v1.Account
             return Ok();
         }
 
+        /// <summary>
+        /// Register confirmation process
+        /// </summary>
+        /// <param name="registerToken"></param>
+        /// <returns>Ok</returns>
         [HttpPost("confirm/{registerToken}")]
         public async Task<IActionResult> ConfirmRegistrationAsync(string registerToken)
         {
@@ -60,6 +74,10 @@ namespace Schedule.Controllers.v1.Account
             return Ok();
         }
 
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <returns>Ok</returns>
         [HttpPost("logout")]
         public IActionResult Logout()
         {

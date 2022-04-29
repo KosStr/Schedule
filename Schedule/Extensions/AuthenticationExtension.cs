@@ -9,9 +9,10 @@ namespace Schedule.Extensions
 {
     public static class AuthenticationExtension
     {
-        public static void AddJwtAuthentication(this IServiceCollection services, IServiceProvider serviceProvider)
+        public static void AddJwtAuthentication(this IServiceCollection services)
         {
-            var jwtSettings = serviceProvider.GetService<JwtSettings>();
+            var jwtSettings = services.BuildServiceProvider()
+                .GetRequiredService<JwtSettings>();
 
             services.AddAuthentication(options =>
             {
