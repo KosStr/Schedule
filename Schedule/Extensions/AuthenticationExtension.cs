@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Schedule.Core.Entities.Token;
+using Schedule.Core.Configurations;
 using System;
 using System.Text;
 

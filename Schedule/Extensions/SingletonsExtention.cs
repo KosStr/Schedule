@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Schedule.Core.DTO.Email;
-using Schedule.Core.Entities.Token;
+using Schedule.Core.Configurations;
 
 namespace Schedule.Extensions
 {
@@ -16,6 +15,10 @@ namespace Schedule.Extensions
             var emailSettings = new EmailSettings();
             configuration.GetSection("EmailSettings").Bind(emailSettings);
             services.AddSingleton(emailSettings);
+
+            var blobStorageOptions = new AzureBlobStorageOptions();
+            configuration.GetSection("AzureBlobStorageOptions").Bind(blobStorageOptions);
+            services.AddSingleton(blobStorageOptions);
         }
     }
 }

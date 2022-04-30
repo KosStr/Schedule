@@ -1,4 +1,4 @@
-﻿namespace Schedule.Core.Entities.Token
+﻿namespace Schedule.Core.Configurations
 {
     public class JwtSettings
     {

@@ -2,8 +2,8 @@
 using System.Net.Mail;
 using System.Net;
 using System;
-using Schedule.Core.DTO.Email;
 using Schedule.Core.Entities.Token;
+using Schedule.Core.Configurations;
 
 namespace Schedule.Extensions
 {

@@ -1,4 +1,6 @@
-﻿namespace Schedule.Core.DTO.Email
+﻿using Schedule.Core.DTO.Email;
+
+namespace Schedule.Core.Configurations
 {
     public class EmailSettings
     {
