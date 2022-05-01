@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Microsoft.EntityFrameworkCore;
+using Schedule.database;
 using Schedule.Database.Repository.Interfaces;
 using Schedule.Database.Repository.Interfaces.Base;
 using System;
@@ -12,16 +13,17 @@ namespace Schedule.Database.Repository.Implementations
     {
         #region Properties
 
-        private readonly Lazy<DbContext> _context;
+        private readonly Lazy<SqlDatabase> _context;
         private readonly ILifetimeScope _lifetimeScope;
 
         #endregion
 
         #region Constructor
 
-        public UnitOfWork(Lazy<DbContext> context)
+        public UnitOfWork(Lazy<SqlDatabase> context, ILifetimeScope lifetimeScope)
         {
             _context = context;
+            _lifetimeScope = lifetimeScope;
         }
 
         #endregion

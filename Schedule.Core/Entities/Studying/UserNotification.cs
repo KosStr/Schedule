@@ -3,7 +3,7 @@ using System;
 
 namespace Schedule.Core.Entities.General
 {
-    public class UserNotifications
+    public class UserNotification
     {
         public Guid NotificationId { get; set; }
         public virtual Notification Notification { get; set; }

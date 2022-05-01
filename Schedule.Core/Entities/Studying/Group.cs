@@ -10,8 +10,10 @@ namespace Schedule.Core.Entities.General
     {
         public string Name { get; set; }
         public Faculty Faculty { get; set; }
-        public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<Assignment> Assignments { get; set; }
-        public virtual ICollection<AppointmentGroups> Appointments { get; set; }
+
+        public virtual ICollection<User> Users { get; set; } = new List<User>();    
+        public virtual ICollection<Assignment> Assignments { get; set; } = new List<Assignment>();
+        public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
+        public virtual ICollection<AppointmentGroup> AppointmentGroups { get; set; } = new List<AppointmentGroup>();
     }
 }

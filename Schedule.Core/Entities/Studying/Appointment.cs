@@ -13,13 +13,14 @@ namespace Schedule.Core.Entities.Studying
         public bool IsCancelled { get; set; }
         public bool IsOnline { get; set; }
         public string Link { get; set; }
-        public Guid TaskId { get; set; }
-        public virtual Task Task { get; set; }
         public Guid SubjectId { get; set; }
         public virtual Subject Subject { get; set; }
         public Guid TeacherId { get; set; }
         public virtual User Teacher { get; set; }
-        public virtual ICollection<AppointmentGroups> Groups { get; set; }
+        public virtual Task Task { get; set; }
+
+        public virtual ICollection<Group> Groups { get; set; }
+        public virtual ICollection<AppointmentGroup> AppointmentGroups { get; set; }
 
     }
 }

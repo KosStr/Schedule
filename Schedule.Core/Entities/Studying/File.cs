@@ -7,7 +7,7 @@ namespace Schedule.Core.Entities.Studying
     public class File : AuditEntity
     {
         public string Path { get; set; }
-        public string FileType { get; set; }
+        public string Extension { get; set; }
         public Guid AssignmentId { get; set; }
         public virtual Assignment Assignment { get; set; }
         public Guid AttachmentId { get; set; }

@@ -3,7 +3,7 @@ using System;
 
 namespace Schedule.Core.Entities.Studying
 {
-    public class AppointmentGroups
+    public class AppointmentGroup
     {
         public Guid AppointmentId { get; set; }
         public Guid GroupId { get; set; }

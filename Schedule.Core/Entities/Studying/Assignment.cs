@@ -11,13 +11,15 @@ namespace Schedule.Core.Entities.Studying
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
-        public double Grade { get; set; }
+        public double? Grade { get; set; }
         public Guid SubjectId { get; set; }
         public virtual Subject Subject { get; set; }
         public Guid TeacherId { get; set; }
         public virtual User Teacher { get; set; }
         public Guid GroupId { get; set; }
         public virtual Group Group { get; set; }
-        public virtual ICollection<Attachment> Attachments { get; set; }
+
+        public virtual ICollection<Attachment> Attachments { get; set; } = new List<Attachment>();
+        public virtual ICollection<File> Files { get; set; } = new List<File>();
     }
 }
