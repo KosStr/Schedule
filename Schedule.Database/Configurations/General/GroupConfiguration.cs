@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Schedule.Core.Entities.General;
+using Schedule.Core.Entities.Studying;
+using Schedule.Core.Helpers;
 using Schedule.database.Configurations.Base;
 
 namespace Schedule.database.Configurations.General
@@ -10,16 +12,29 @@ namespace Schedule.database.Configurations.General
         {
             builder
                 .Property(x => x.Name)
-                .HasMaxLength(20)
+                .HasMaxLength(Constants.MAX_GROUP_NAME_LENGHT)
+                .IsRequired();
+
+            builder
+                .Property(x => x.Faculty)
                 .IsRequired();
 
             builder
                 .HasMany(x => x.Appointments)
-                .WithOne(x => x.Group);
-
-            builder
-                .HasMany(x => x.Users)
-                .WithOne(x => x.Group);
+                .WithMany(x => x.Groups)
+                .UsingEntity<AppointmentGroup>(
+                    agBuilder =>
+                        agBuilder.HasOne(ag => ag.Appointment)
+                        .WithMany(a => a.AppointmentGroups)
+                        .HasForeignKey(ag => ag.AppointmentId),
+                    agBuilder =>
+                        agBuilder.HasOne(ag => ag.Group)
+                        .WithMany(a => a.AppointmentGroups)
+                        .HasForeignKey(ag => ag.GroupId),
+                    agBuilder =>
+                    {
+                        agBuilder.HasKey(ag => new { ag.GroupId, ag.AppointmentId });
+                    });
 
             base.Configure(builder);
         }

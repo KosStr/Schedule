@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Schedule.Core.Entities.Account;
-using Schedule.Core.Entities.Chat;
+using Schedule.Core.Entities.Communication;
 using Schedule.Core.Entities.General;
 using Schedule.Core.Entities.Studying;
 using Schedule.Core.Entities.Token;
@@ -41,11 +41,11 @@ namespace Schedule.database
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Subject> Subjects { get; set; }
-        public DbSet<TeacherSubjects> TeacherSubjects { get; set; }
+        public DbSet<TeacherSubject> TeacherSubjects { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-        public DbSet<UserNotifications> UserNotifications { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<AppointmentGroups> AppointmentGroups { get; set; }
+        public DbSet<AppointmentGroup> AppointmentGroups { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
@@ -55,7 +55,7 @@ namespace Schedule.database
 
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public DbSet<UserChats> UserChats { get; set; }
+        public DbSet<UserChat> UserChats { get; set; }
 
         #endregion
     }

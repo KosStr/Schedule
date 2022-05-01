@@ -49,25 +49,9 @@ namespace Schedule.database.Configurations.Account
                 .IsRequired();
 
             builder
-                .HasOne(x => x.Group)
-                .WithMany(x => x.Users)
+                .HasOne(i => i.Group)
+                .WithMany(i => i.Users)
                 .HasForeignKey(i => i.GroupId);
-
-            builder
-                .HasMany(x => x.Grades)
-                .WithOne(x => x.Student);
-
-            builder
-                .HasMany(x => x.Subjects)
-                .WithOne(x => x.Teacher);
-
-            builder
-                .HasMany(x => x.Notifications)
-                .WithOne(x => x.User);
-
-            builder
-                .HasMany(x => x.Chats)
-                .WithOne(x => x.User);
 
             base.Configure(builder);
         }

@@ -35,8 +35,21 @@ namespace Schedule.database.Configurations.General
                 .HasColumnType("TINYINT");
 
             builder
-                .HasMany(i => i.Users)
-                .WithOne(i => i.Notification);
+                .HasMany(x => x.Users)
+                .WithMany(x => x.Notifications)
+                .UsingEntity<UserNotification>(
+                    unBuilder =>
+                        unBuilder.HasOne(un => un.User)
+                        .WithMany(u => u.UserNotifications)
+                        .HasForeignKey(un => un.UsertId),
+                    unBuilder =>
+                        unBuilder.HasOne(un => un.Notification)
+                        .WithMany(u => u.UserNotifications)
+                        .HasForeignKey(un => un.NotificationId),
+                    unBuilder =>
+                    {
+                        unBuilder.HasKey(us => new { us.UsertId, us.NotificationId });
+                    });
 
             base.Configure(builder);
         }

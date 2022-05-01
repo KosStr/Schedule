@@ -1,9 +1,9 @@
 ﻿using Schedule.Core.Entities.Account;
 using System;
 
-namespace Schedule.Core.Entities.Chat
+namespace Schedule.Core.Entities.Communication
 {
-    public class UserChats
+    public class UserChat
     {
         public Guid UserId { get; set; }
         public Guid ChatId { get; set; }

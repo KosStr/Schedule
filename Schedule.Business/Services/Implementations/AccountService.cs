@@ -2,6 +2,7 @@
 using Schedule.Business.Helpers.Interfaces;
 using Schedule.Business.Services.Base;
 using Schedule.Business.Services.Interfaces;
+using Schedule.Core.Configurations;
 using Schedule.Core.DTO.Account;
 using Schedule.Core.DTO.Token;
 using Schedule.Core.Entities.Account;
