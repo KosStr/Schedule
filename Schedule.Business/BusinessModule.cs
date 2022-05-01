@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Schedule.Business.Services.Base;
+using Schedule.Business.Services.Interfaces;
 using Schedule.Database;
 using System;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Schedule.Business
 
         private Type[] GetServices()
         {
-            return ThisAssembly.GetTypes().Where(i => !i.IsAbstract && i.IsClass && i.IsAssignableTo<ServiceBase>()).ToArray();
+            return ThisAssembly.GetTypes().Where(i => !i.IsAbstract && i.IsClass && i.IsAssignableTo<IService>()).ToArray();
         }
     }
 }

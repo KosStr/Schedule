@@ -38,6 +38,7 @@ namespace Schedule
             services.AddJwtAuthentication();
             services.AddEmail();
             services.AddDatabaseContext(Configuration);
+            services.AddServices(Configuration);
             services.AddSwagger();
             services.AddHttpContextAccessor();
             services.AddLogging();

@@ -2,6 +2,7 @@
 using FluentEmail.Core.Models;
 using Schedule.Business.Helpers.Interfaces;
 using Schedule.Business.Services.Base;
+using Schedule.Core.Configurations;
 using Schedule.Core.DTO.Account;
 using Schedule.Core.DTO.Email;
 using Schedule.Core.Entities.Account;

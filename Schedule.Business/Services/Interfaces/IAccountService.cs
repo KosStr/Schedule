@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Schedule.Business.Services.Interfaces
 {
-    public interface IAccountService : IDisposable
+    public interface IAccountService : IService, IDisposable
     {
         Task<AuthResultDto> LoginAsync(AuthDto auth, CancellationToken cancellationToken = default);
         Task RegisterAsync(RegisterDto registerModel, CancellationToken cancellationToken = default);
