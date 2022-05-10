@@ -1,9 +1,10 @@
 ﻿using Schedule.Core.Entities.Account;
+using Schedule.Core.Entities.Base;
 using System;
 
 namespace Schedule.Core.Entities.Communication
 {
-    public class UserChat
+    public class UserChat: ISqlEntity
     {
         public Guid UserId { get; set; }
         public Guid ChatId { get; set; }

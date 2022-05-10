@@ -10,6 +10,8 @@ namespace Schedule.Core.DTO.Account
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string GroupName { get; set; }
+        public Guid? GroupId { get; set; }
+        public string Phone { get; set; }
         public Role Role { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using Schedule.Core.DTO.Token;
 using Schedule.Core.Entities.Account;
 using Schedule.Core.Entities.Token;
 using Schedule.Core.Enums;
+using Schedule.Core.Helpers;
 using Schedule.Database.Repository.Interfaces;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -120,7 +121,7 @@ namespace Schedule.Business.Services.Implementations
 
             return new AuthResultDto
             {
-                Status = RequestStatus.Success,
+                Status = ActionStatus.Success,
                 JwtToken = GenereteAccessToken(user),
                 RefreshToken = refreshString,
                 RefreshExpiry = lifeTimeUpdate
@@ -150,6 +151,7 @@ namespace Schedule.Business.Services.Implementations
             {
                 Id = i.Id,
                 Email = i.Email,
+                GroupId = i.GroupId,
                 Role = i.Role
             }, cancellationToken);
 
@@ -223,7 +225,7 @@ namespace Schedule.Business.Services.Implementations
 
             return new AuthResultDto
             {
-                Status = RequestStatus.Success,
+                Status = ActionStatus.Success,
                 JwtToken = accessString,
                 RefreshToken = refreshString,
                 RefreshExpiry = lifeTimeUpdate
@@ -237,7 +239,8 @@ namespace Schedule.Business.Services.Implementations
             {
                 Subject = new ClaimsIdentity(claims ?? new Claim[]
                 {
-                    new Claim("UserId", user.Id.ToString()),
+                    new Claim(Constants.Claims.UserId, user.Id.ToString()),
+                    new Claim(Constants.Claims.GroupId, user.GroupId.ToString()),
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Role, user.Role.ToString())
                 }),

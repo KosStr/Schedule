@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Schedule.Attributes;
 using Schedule.Business.Services.Interfaces;
@@ -27,12 +28,8 @@ namespace Schedule.Controllers.v1.Account
         #endregion
 
         #region Actions
-        /// <summary>
-        /// Login
-        /// </summary>
-        /// <param name="authDto"></param>
-        /// <returns>Access token and logged in user</returns>
-        [HttpPost("login")]
+
+        [HttpPost("login"), AllowAnonymous]
         public async Task<IActionResult> LoginAsync([FromBody] AuthDto authDto)
         {
             var authResult = await _accountService.LoginAsync(authDto);
@@ -50,34 +47,20 @@ namespace Schedule.Controllers.v1.Account
             return Ok(new { AccessToken = authResult.JwtToken, User = authResult.User });
         }
 
-        /// <summary>
-        /// Registration
-        /// </summary>
-        /// <param name="registerDto"></param>
-        /// <returns>Ok</returns>
-        [HttpPost("register")]
+        [HttpPost("register"), AllowAnonymous]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterDto registerDto)
         {
             await _accountService.RegisterAsync(registerDto);
             return Ok();
         }
 
-        /// <summary>
-        /// Register confirmation process
-        /// </summary>
-        /// <param name="registerToken"></param>
-        /// <returns>Ok</returns>
-        [HttpPost("confirm/{registerToken}")]
+        [HttpPost("confirm/{registerToken}"), AllowAnonymous]
         public async Task<IActionResult> ConfirmRegistrationAsync(string registerToken)
         {
             await _accountService.ConfirmRegistrationAsync(registerToken);
             return Ok();
         }
 
-        /// <summary>
-        /// Logout
-        /// </summary>
-        /// <returns>Ok</returns>
         [HttpPost("logout")]
         public IActionResult Logout()
         {
