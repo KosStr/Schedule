@@ -33,5 +33,15 @@
         }
 
         #endregion
+
+        #region Claims
+
+        public class Claims
+        {
+            public const string UserId = "UserId";
+            public const string GroupId = "GroupId";
+        }
+
+        #endregion
     }
 }
