@@ -41,14 +41,14 @@ namespace Schedule.database.Configurations.General
                     unBuilder =>
                         unBuilder.HasOne(un => un.User)
                         .WithMany(u => u.UserNotifications)
-                        .HasForeignKey(un => un.UsertId),
+                        .HasForeignKey(un => un.UserId),
                     unBuilder =>
                         unBuilder.HasOne(un => un.Notification)
                         .WithMany(u => u.UserNotifications)
                         .HasForeignKey(un => un.NotificationId),
                     unBuilder =>
                     {
-                        unBuilder.HasKey(us => new { us.UsertId, us.NotificationId });
+                        unBuilder.HasKey(us => new { us.UserId, us.NotificationId });
                     });
 
             base.Configure(builder);
