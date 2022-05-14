@@ -4,6 +4,7 @@ using Schedule.Core.Entities.Communication;
 using Schedule.Core.Entities.General;
 using Schedule.Core.Entities.Studying;
 using Schedule.Core.Entities.Token;
+using Schedule.Database.SeedData;
 
 namespace Schedule.database
 {
@@ -22,6 +23,7 @@ namespace Schedule.database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseLazyLoadingProxies();
         }
 
