@@ -20,9 +20,20 @@
 	    <OutputPath></OutputPath>
     </PropertyGroup>
 
-	<ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClientApp\EmailTemplates\RegistrationMail.cshtml" />
+    <EmbeddedResource Include="ClientApp\EmailTemplates\PasswordChangeMail.cshtml" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Antiforgery" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">

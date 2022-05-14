@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System.Net.Mail;
-using System.Net;
-using System;
-using Schedule.Core.Entities.Token;
 using Schedule.Core.Configurations;
+using System.Net;
+using System.Net.Mail;
 
 namespace Schedule.Extensions
 {
@@ -19,7 +17,8 @@ namespace Schedule.Extensions
                 .AddSmtpSender(new SmtpClient(emailSettings.SmtpSettings.Host, emailSettings.SmtpSettings.Port)
                 {
                     Credentials = new NetworkCredential(emailSettings.SmtpSettings.SenderCredentials.SenderName, emailSettings.SmtpSettings.SenderCredentials.Password),
-                    EnableSsl = true
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
                 });
         }
 

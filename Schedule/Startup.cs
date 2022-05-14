@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Schedule.Business;
+using Schedule.Core.Enums;
 using Schedule.Extensions;
 
 namespace Schedule
@@ -40,6 +41,13 @@ namespace Schedule
             services.AddSwagger();
             services.AddHttpContextAccessor();
             services.AddLogging();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(nameof(Role.Student), policy => policy.RequireRole(nameof(Role.Student)));
+                options.AddPolicy(nameof(Role.Teacher), policy => policy.RequireRole(nameof(Role.Teacher)));
+                options.AddPolicy(nameof(Role.Admin), policy => policy.RequireRole(nameof(Role.Admin)));
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

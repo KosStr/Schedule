@@ -1,6 +1,5 @@
 ﻿using Schedule.Core.Enums;
 using System;
-using System.Runtime.Serialization;
 
 namespace Schedule.Core.Exceptions
 {

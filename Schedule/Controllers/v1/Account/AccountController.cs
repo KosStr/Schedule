@@ -43,6 +43,7 @@ namespace Schedule.Controllers.v1.Account
                    SameSite = SameSiteMode.Strict,
                    Expires = authResult.RefreshExpiry
                });
+
             //add Dto;
             return Ok(new { AccessToken = authResult.JwtToken, User = authResult.User });
         }

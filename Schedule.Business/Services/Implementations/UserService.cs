@@ -107,7 +107,7 @@ namespace Schedule.Business.Services.Implementations
 
         public async Task<IEnumerable<GradeDto>> GetSubjectGradesAsync(Guid subjectId, CancellationToken cancellationToken = default)
         {
-            return await UnitOfWork.Repository<Grade>().GetAsync(i => i.StudentId == currentUser.Value.UserId && i.SubjectId == SubjectId, i => new GradeDto
+            return await UnitOfWork.Repository<Grade>().GetAsync(i => i.StudentId == currentUser.Value.UserId && i.SubjectId == subjectId, i => new GradeDto
             {
                 Id = i.Id,
                 Date = i.Date,

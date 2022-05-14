@@ -1,4 +1,5 @@
-﻿using Schedule.Core.Enums;
+﻿using Schedule.Business.Services.Interfaces;
+using Schedule.Core.Enums;
 using System;
 
 namespace Schedule.Business.Helpers.Interfaces

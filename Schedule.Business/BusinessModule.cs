@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Schedule.Business.Services.Base;
+using Schedule.Business.Services.Implementations;
 using Schedule.Business.Services.Interfaces;
 using Schedule.Database;
 using System;
@@ -14,6 +14,11 @@ namespace Schedule.Business
         {
             var services = GetServices();
             builder.RegisterTypes(services)
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+
+            builder
+                .RegisterType<CurrentUserHelper>()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 

@@ -10,7 +10,7 @@ namespace Schedule.Attributes
     {
         public PolicyAttribute(params Role[] roles)
         {
-            Policy = string.Join(",", roles.Select(i => $"{i}"));
+            Roles = string.Join(",", roles);
         }
     }
 }

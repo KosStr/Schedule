@@ -124,7 +124,13 @@ namespace Schedule.Business.Services.Implementations
                 Status = ActionStatus.Success,
                 JwtToken = GenereteAccessToken(user),
                 RefreshToken = refreshString,
-                RefreshExpiry = lifeTimeUpdate
+                RefreshExpiry = lifeTimeUpdate,
+                User = new UserDto
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Role = user.Role
+                }
             };
         }
 
