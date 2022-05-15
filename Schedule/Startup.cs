@@ -56,11 +56,10 @@ namespace Schedule
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-            }
 
             app.UseMiddlewareHandler();
+
+            app.UseRefreshTokenHandler();
 
             app.UseSwagger();
 

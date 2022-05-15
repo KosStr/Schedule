@@ -83,12 +83,17 @@ namespace Schedule.Business.Services.Implementations
 
         public async Task<AuthResultDto> LoginAsync(AuthDto auth, CancellationToken cancellationToken = default)
         {
-            var user = await UnitOfWork.Repository<User>().GetFirstAsync(u => u.Email == auth.Email,
+            var user = await UnitOfWork.Repository<User>().GetFirstAsync(u => u.Email == auth.Email 
+                                                                        && u.Group.Name == auth.GroupName,
                 u => new UserDto
                 {
                     Id = u.Id,
                     Email = u.Email,
+                    FirstName = u.FirstName,
+                    LastName= u.LastName,
+                    GroupId = u.Group.Id,
                     GroupName = u.Group.Name,
+                    Phone = u.Phone,
                     Role = u.Role
                 }, cancellationToken);
 
@@ -125,12 +130,7 @@ namespace Schedule.Business.Services.Implementations
                 JwtToken = GenereteAccessToken(user),
                 RefreshToken = refreshString,
                 RefreshExpiry = lifeTimeUpdate,
-                User = new UserDto
-                {
-                    Id = user.Id,
-                    Email = user.Email,
-                    Role = user.Role
-                }
+                User = user
             };
         }
 
