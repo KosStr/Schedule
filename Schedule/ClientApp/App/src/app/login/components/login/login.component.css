@@ -1,0 +1,54 @@
+#form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+mat-card {
+  margin: 150px 0 0 0;
+  padding-bottom: 37px;
+}
+
+.brand-title {
+  -webkit-filter: brightness(80%);
+  -moz-filter: brightness(80%);
+  filter: brightness(80%);
+  line-height: 10px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.brand-title:after {
+  content: "";
+  display: block;
+  border-top: 10px solid rgba(0, 0, 0, 0.1);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  margin-bottom: -10px;
+  margin-left: -10px;
+  bottom: 0;
+}
+
+.top-transparent-ribbon {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-part {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
