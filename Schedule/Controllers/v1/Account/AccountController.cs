@@ -38,14 +38,14 @@ namespace Schedule.Controllers.v1.Account
               authResult.RefreshToken,
                new CookieOptions
                {
-                   HttpOnly = true,
-                   Secure = true,
+                   HttpOnly = false,
+                   Secure = false,
                    SameSite = SameSiteMode.Strict,
                    Expires = authResult.RefreshExpiry
                });
 
             //add Dto;
-            return Ok(new { AccessToken = authResult.JwtToken, User = authResult.User });
+            return Ok(new { AccessToken = authResult.JwtToken, User = authResult.User, Status = authResult.Status });
         }
 
         [HttpPost("register"), AllowAnonymous]
