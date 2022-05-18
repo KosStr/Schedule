@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Schedule.Attributes;
 using Schedule.Business.Services.Interfaces;
 using Schedule.Core.DTO.Account;
+using Schedule.Core.DTO.Token;
 using Schedule.Core.Helpers;
 using System.Threading.Tasks;
 
@@ -60,6 +61,12 @@ namespace Schedule.Controllers.v1.Account
         {
             await _accountService.ConfirmRegistrationAsync(registerToken);
             return Ok();
+        }
+
+        [HttpPost("resfresh")]
+        public async Task<IActionResult> UpdateRefreshAsync([FromBody] TokenUpdateDto tokens)
+        {
+            return Ok(await _accountService.UpdateRefreshTokenAsync(tokens));
         }
 
         [HttpPost("logout")]

@@ -43,5 +43,27 @@
         }
 
         #endregion
+
+        #region Rules
+        public class Rules
+        {
+            public const string Create = "Create";
+            public const string Update = "Update";
+            public const string Delete = "Delete";
+        }
+
+        #endregion
+
+        #region Messages
+        public class Messages
+        {
+            public const string ExistingId = "This Id already exists";
+            public const string NonExistingId = "This Id doesn't exists";
+            public const string ExistingEmail = "This email already exists";
+            public const string ExistingEntity = "This entity already exists";
+            public const string InvalidInput = "Invalid input";
+        }
+
+        #endregion
     }
 }
