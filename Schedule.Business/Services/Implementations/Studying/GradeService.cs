@@ -6,6 +6,7 @@ using Schedule.Core.Entities.General;
 using Schedule.Core.Enums;
 using Schedule.Database.Repository.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -39,13 +40,6 @@ namespace Schedule.Business.Services.Implementations.Studying
             return ActionStatus.Success;
         }
 
-        public async Task<ActionStatus> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            await UnitOfWork.Repository<Grade>().DeleteAsync(i => i.Id == id, cancellationToken);
-            await UnitOfWork.SaveChangesAsync();
-            return ActionStatus.Success;
-        }
-
         public async Task<GradeDto> GetAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await UnitOfWork.Repository<Grade>().GetFirstAsync(i => i.Id == id, i => new GradeDto
@@ -74,6 +68,39 @@ namespace Schedule.Business.Services.Implementations.Studying
             await UnitOfWork.Repository<Grade>().UpdateAsync(entity, cancellationToken);
             await UnitOfWork.SaveChangesAsync(cancellationToken);
             return ActionStatus.Success;
+        }
+
+        public async Task<ActionStatus> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            await UnitOfWork.Repository<Grade>().DeleteAsync(i => i.Id == id, cancellationToken);
+            await UnitOfWork.SaveChangesAsync();
+            return ActionStatus.Success;
+        }
+
+        public async Task<IEnumerable<GradeDto>> GetGradesAsync(CancellationToken cancellationToken = default)
+        {
+            return await UnitOfWork.Repository<Grade>().GetAsync(i => i.StudentId == currentUser.Value.UserId, i => new GradeDto
+            {
+                Id = i.Id,
+                Date = i.Date,
+                Comment = i.Comment,
+                Value = i.Value,
+                Student = i.Student,
+                Subject = i.Subject
+            }, cancellationToken);
+        }
+
+        public async Task<IEnumerable<GradeDto>> GetSubjectGradesAsync(Guid subjectId, CancellationToken cancellationToken = default)
+        {
+            return await UnitOfWork.Repository<Grade>().GetAsync(i => i.StudentId == currentUser.Value.UserId && i.SubjectId == subjectId, i => new GradeDto
+            {
+                Id = i.Id,
+                Date = i.Date,
+                Comment = i.Comment,
+                Value = i.Value,
+                Student = i.Student,
+                Subject = i.Subject
+            }, cancellationToken);
         }
 
         #endregion

@@ -1,0 +1,14 @@
+<div id="table-border">
+  <table mat-table [dataSource]="dataSource" *ngIf="dataSource.data">
+    <ng-container *ngFor="let tableColumnName of tableColumnNames" [matColumnDef]="tableColumnName">
+      <th mat-header-cell *matHeaderCellDef>
+        <p> {{ tableColumnName }} </p>
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.isCancelled }}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="tableColumnNames">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: tableColumnNames"></tr>
+  </table>
+</div>

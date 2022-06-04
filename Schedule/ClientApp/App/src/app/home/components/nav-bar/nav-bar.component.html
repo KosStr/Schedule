@@ -1,1 +1,25 @@
-<p>nav-bar works!</p>
+<div id="background-container">
+    <div id="left-container">
+    </div>
+    <div id="right-container">
+    </div>
+</div>
+<div id="nav-bar">
+    <div id="logo-block" (click)="redirectHome()">
+        <img src="../../../assets/logo.jpg" id="logo">
+        <p id='organisation-name'>Schedule | {{ groupName }}</p>
+    </div>
+    <div id="nav-bar-actions">
+        <mat-icon id="nav-icon" (click)="refreshPage()">cloud</mat-icon>
+        <div id="vertical-line"></div>
+        <mat-icon id="nav-icon" matBadge="{{notificationsCount}}" matBadgeSize="small" [matBadgeDisabled]="!notificationsCount || !showNotifications" (click)="openNotifications()">notifications</mat-icon>
+        <div id="vertical-line"></div>
+        <div id="user-container">
+            <p id="user-name" [matMenuTriggerFor]="menu">{{ firstName }} {{ lastName }}</p>
+        </div>
+        <button id="logout-button" (click)="logout()">Logout</button>
+        <mat-menu id="nav-bar-menu" #menu="matMenu">
+            <app-nav-bar-user-menu></app-nav-bar-user-menu>
+        </mat-menu>
+    </div>
+</div>

@@ -14,10 +14,9 @@ namespace Schedule.Business.Services.Interfaces
         Task<IEnumerable<UserDto>> GetGroupUsersAsync(CancellationToken cancellationToken = default);
         Task<ActionStatus> UpdateAsync(UserDto user, CancellationToken cancellationToken = default);
         Task<IEnumerable<NotificationDto>> GetNotificationsAsync(CancellationToken cancellationToken = default);
-        Task<IEnumerable<GradeDto>> GetGradesAsync(CancellationToken cancellationToken = default);
-        Task<IEnumerable<GradeDto>> GetSubjectGradesAsync(Guid subjectId, CancellationToken cancellationToken = default);
         Task<IEnumerable<SubjectDto>> GetSubjectsAsync(CancellationToken cancellationToken = default);
         Task<IEnumerable<ChatDto>> GetChatsAsync(CancellationToken cancellationToken = default);
         Task<IEnumerable<AppointmentDto>> GetAppointmentsAsync(CancellationToken cancellationToken = default);
+        Task<ActionStatus> DeleteAsync(Guid userId, CancellationToken cancellationToken = default);
     }
 }

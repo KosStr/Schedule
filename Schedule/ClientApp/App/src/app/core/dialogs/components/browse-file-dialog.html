@@ -1,0 +1,14 @@
+<div id="dialog-header-row">
+  <h2 id="dialog-header">Browse file</h2>
+  <mat-icon id="close-icon" (click)="dialogRef.close()">close</mat-icon>
+</div>
+
+<div class="input-group">
+  <label class="input-group-btn">
+    <span class="btn browse-btn">
+      Browse
+      <input type="file" id="file" class="btn btn-primary" (change)="handleFileInput()" multiple>
+    </span>
+  </label>
+  <input id="file-list" type="text" class="form-control" readonly>
+</div>

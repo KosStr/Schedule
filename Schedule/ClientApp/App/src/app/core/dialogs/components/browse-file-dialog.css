@@ -1,0 +1,58 @@
+#dialog-header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#dialog-header {
+  margin-bottom: 0px;
+  font-weight: bold;
+  color: rgba(10, 43, 92, 1);
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#file-list {
+  margin: 0px;
+  height: 32px;
+  margin-left: 10px;
+  border-radius: 30px
+}
+
+#close-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.browse-btn {
+  width: 111px;
+  height: 32px;
+  border: 1px solid #42abff;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: rgba(66, 171, 255, 1);
+}
+
+.import-btn {
+  width: 100px;
+  background-color: green;
+  color: white !important;
+}

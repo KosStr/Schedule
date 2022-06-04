@@ -4,32 +4,5 @@
         <name>Schedule</name>
     </assembly>
     <members>
-        <member name="M:Schedule.Controllers.v1.Account.AccountController.LoginAsync(Schedule.Core.DTO.Account.AuthDto)">
-            <summary>
-            Login
-            </summary>
-            <param name="authDto"></param>
-            <returns>Access token and logged in user</returns>
-        </member>
-        <member name="M:Schedule.Controllers.v1.Account.AccountController.RegisterAsync(Schedule.Core.DTO.Account.RegisterDto)">
-            <summary>
-            Registration
-            </summary>
-            <param name="registerDto"></param>
-            <returns>Ok</returns>
-        </member>
-        <member name="M:Schedule.Controllers.v1.Account.AccountController.ConfirmRegistrationAsync(System.String)">
-            <summary>
-            Register confirmation process
-            </summary>
-            <param name="registerToken"></param>
-            <returns>Ok</returns>
-        </member>
-        <member name="M:Schedule.Controllers.v1.Account.AccountController.Logout">
-            <summary>
-            Logout
-            </summary>
-            <returns>Ok</returns>
-        </member>
     </members>
 </doc>

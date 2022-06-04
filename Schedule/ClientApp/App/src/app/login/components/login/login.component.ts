@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthenticationService} from "../../services/authentication.service";
-import {AuthDto} from "../../models/AuthDto";
-import {Router} from "@angular/router";
-import {BehaviorSubject, Subject} from "rxjs";
-import {NotificationService} from "../../../home/services/notification.service";
-import {takeUntil} from "rxjs/operators";
+import { Component, OnDestroy } from '@angular/core';
+import { AuthenticationService } from "../../services/authentication.service";
+import { AuthDto } from "../../models/AuthDto";
+import { Router } from "@angular/router";
+import { Subject } from "rxjs";
+import { NotificationService } from "../../../home/services/notification.service";
+import { takeUntil, tap } from "rxjs/operators";
 
 @Component({
   selector: 'app-login',
@@ -14,11 +14,11 @@ import {takeUntil} from "rxjs/operators";
 export class LoginComponent implements OnDestroy {
   model: AuthDto = new AuthDto();
   passwordsShown = false;
-  destroy$ = new Subject<number>();
+  destroy$ = new Subject<boolean>();
 
   constructor(private router: Router,
-              private authenticationService: AuthenticationService,
-              private notificationService: NotificationService) { }
+    private authenticationService: AuthenticationService,
+    private notificationService: NotificationService) { }
 
   ngOnDestroy(): void {
     this.destroy$.next(null);
@@ -26,11 +26,8 @@ export class LoginComponent implements OnDestroy {
   }
 
   public login(): void {
-    this.authenticationService.login(this.model)
-      .pipe(
-        takeUntil(this.destroy$)
-      )
-      .subscribe((result: boolean) => {
+    this.authenticationService.login(this.model).pipe(
+      tap((result: boolean) => {
         if (result) {
           this.notificationService.showSuccessMessage("Authentication has been success")
           this.router.navigate(['/']);
@@ -39,10 +36,13 @@ export class LoginComponent implements OnDestroy {
         }
       }, err => {
         this.notificationService.showErrorMessage(err);
-      });
+      }),
+      takeUntil(this.destroy$)
+    )
+      .subscribe();
   }
 
-  public togglePasswordVisibility = (): void => {
+  public togglePasswordVisibility(): void {
     this.passwordsShown = !this.passwordsShown;
   }
 }

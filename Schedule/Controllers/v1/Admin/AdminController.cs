@@ -2,9 +2,6 @@
 using Schedule.Attributes;
 using Schedule.Business.Services.Interfaces;
 using Schedule.Core.Enums;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Schedule.Controllers.v1.Admin
 {
@@ -27,12 +24,6 @@ namespace Schedule.Controllers.v1.Admin
         #endregion
 
         #region Actions
-
-        [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
-        {
-            return Ok(await _adminService.DeleteUserAsync(id, cancellationToken));
-        }
 
         #endregion
     }

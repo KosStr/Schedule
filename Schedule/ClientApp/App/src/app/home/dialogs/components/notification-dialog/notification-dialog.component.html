@@ -1,0 +1,16 @@
+<div class="dialog">
+  <div id="dialog-header-row">
+    <h2 id="dialog-header">Notifications</h2>
+    <mat-icon button class="close-icon" (click)="closeDialog()">close</mat-icon>
+  </div>
+  <div class="content-scroll">
+    <div *ngFor="let notification of notifications">
+      <div class="alert-content">
+        <div class="dotted-row">
+          <mat-icon class="circle" [ngStyle]="{'color': notification.color}">circle</mat-icon>
+          <p id="short-text">{{ notification.message }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

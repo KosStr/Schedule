@@ -1,0 +1,33 @@
+#nav-bar-menu {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  background: rgba(255, 255, 255, 1);
+  margin-bottom: 5px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  height: 35px;
+  cursor: pointer;
+  color: rgba(10, 43, 92, 1);
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 5px;
+}
+
+.menu-icon {
+  margin-right: 18px;
+  padding-left: 10px;
+}
+
+.menu-item:hover {
+  text-decoration: none;
+  outline: none;
+  background: #e9eff5;
+  border-radius: 38px;
+}

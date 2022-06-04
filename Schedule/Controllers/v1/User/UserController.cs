@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Schedule.Controllers.v1.Account
 {
-    [RouteV1("[controller]"), Policy(Role.Student, Role.Teacher)]
+    [RouteV1("[controller]"), Policy(Role.Student, Role.Teacher, Role.Admin)]
     public class UserController : ControllerBase
     {
         #region Properties
@@ -28,7 +28,7 @@ namespace Schedule.Controllers.v1.Account
 
         #region Actions
 
-        [HttpGet("group")]
+        [HttpGet("members")]
         public async Task<IActionResult> GetGroupUsersAsync(CancellationToken cancellationToken)
         {
             return Ok(await _userService.GetGroupUsersAsync(cancellationToken));
@@ -46,18 +46,6 @@ namespace Schedule.Controllers.v1.Account
             return Ok(await _userService.GetChatsAsync(cancellationToken));
         }
 
-        [HttpGet("grades")]
-        public async Task<IActionResult> GetGradesAsync(CancellationToken cancellationToken)
-        {
-            return Ok(await _userService.GetGradesAsync(cancellationToken));
-        }
-
-        [HttpGet("grades/{subjectId}")]
-        public async Task<IActionResult> GetGradesAsync(Guid subjectId, CancellationToken cancellationToken)
-        {
-            return Ok(await _userService.GetSubjectGradesAsync(subjectId, cancellationToken));
-        }
-
         [HttpGet("subjects")]
         public async Task<IActionResult> GetSubjectsAsync(CancellationToken cancellationToken)
         {
@@ -68,6 +56,12 @@ namespace Schedule.Controllers.v1.Account
         public async Task<IActionResult> GetNotificationsAsync(CancellationToken cancellationToken)
         {
             return Ok(await _userService.GetNotificationsAsync(cancellationToken));
+        }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
+        {
+            return Ok(await _userService.DeleteAsync(id, cancellationToken));
         }
 
         #endregion

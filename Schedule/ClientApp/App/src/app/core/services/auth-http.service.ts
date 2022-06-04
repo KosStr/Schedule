@@ -18,7 +18,7 @@ export class AuthHttpService {
     headers = this.setAuthorizationHeader(headers);
 
     return this.http.get(uri, {
-      headers
+      headers: headers
     });
   }
 

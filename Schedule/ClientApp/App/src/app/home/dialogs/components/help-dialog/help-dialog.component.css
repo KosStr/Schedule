@@ -1,0 +1,122 @@
+#dialog-header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#dialog-header {
+  margin-bottom: 0px;
+  font-weight: bold;
+  color: rgba(10, 43, 92, 1);
+}
+
+.contact-content {
+  width: 100%;
+}
+
+#contact-text {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.contact-contacts {
+  color: rgba(10, 43, 92, 1);
+  margin-bottom: 0px;
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.contact-reason {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.contact-input {
+  width: 200px !important;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#upload-btn {
+  width: 111px;
+  height: 32px;
+  border: 1px solid #42abff;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: rgba(66, 171, 255, 1);
+}
+
+.submit-btn {
+  width: 111px;
+  height: 32px;
+  border: 1px solid #5CB85C;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #5CB85C;
+}
+
+#boilerPlate {
+  border: 1px solid grey;
+  border-radius: 4px;
+  min-height: 120px;
+  margin-top: 5px;
+  resize: none;
+  margin-bottom: 30px;
+  padding: 3px 3px 3px 3px;
+}
+
+.contact-label {
+  font-weight: normal;
+  margin: 0px;
+}
+
+.error {
+  color: red;
+  margin-right: 10px;
+}
+
+.contact-reason-header {
+  color: rgba(10, 43, 92, 1);
+  margin-bottom: 5px;
+}
+
+#contact-attachment {
+  margin-top: 20px;
+  color: rgba(10, 43, 92, 1);
+  margin-bottom: 5px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+.contact-uploads {
+  display: flex;
+  height: 35px;
+  align-items: center;
+}

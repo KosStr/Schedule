@@ -1,0 +1,44 @@
+<div id="dialog-header-row">
+  <h2 id="dialog-header">Schedule Help</h2>
+  <mat-icon id="dialog-close-icon" (click)="dialogRef.close()">close</mat-icon>
+</div>
+
+<div class="contact-content">
+  <h4 id="contact-text">Did you encounter an issue? Or do you have an idea about how we can improve the application?
+    Fill in the form below and we will contact swiftly:</h4>
+  <h4 class="contact-contacts">Contact Details:</h4>
+  <div class="inputs">
+    <mat-form-field class="contact-input">
+      <input type="text" matInput [formControl]="nameControl" name="name">
+      <mat-hint>Name</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="contact-input" required>
+      <input matInput [formControl]="emailControl" type="email" name="email" required>
+      <mat-hint>Email</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="contact-reason">
+    <h4 class="contact-reason-header">What is your question?</h4>
+    <mat-checkbox (click)="select(helpReasons.ErrorMessage)">
+      <p class="contact-label">Error message in the web application</p>
+    </mat-checkbox>
+    <mat-checkbox (click)="select(helpReasons.NotClear)">
+      <p class="contact-label">Not clear to me how the application works</p>
+    </mat-checkbox>
+    <mat-checkbox (click)="select(helpReasons.Idea)">
+      <p class="contact-label">Idea for a new feature</p>
+    </mat-checkbox>
+    <h4 id="contact-attachment">Add a file (optional)</h4>
+    <div class="contact-uploads">
+      <button mat-button id="upload-btn" (click)="upload()">Upload</button>
+      <p class="contact-attachment" *ngIf="files.length">{{files.length}} files uploaded</p>
+    </div>
+  </div>
+  <h4 class="contact-contacts">Description:</h4>
+  <textarea name="boilerPlate" [(ngModel)]="description" placeholder="Description:" id="boilerPlate" matInput>
+  </textarea>
+  <div class="contact-buttons">
+    <p *ngIf="hasError" class="error">You need to write your emailaddress and select at least one reason</p>
+    <button mat-button class="submit-btn" (click)="submit()">Submit</button>
+  </div>
+</div>

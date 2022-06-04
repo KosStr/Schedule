@@ -24,7 +24,7 @@ namespace Schedule.Middleware
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
-            if(httpContext.Request.Path.StartsWithSegments(new PathString("/refresh")) &&
+            if (httpContext.Request.Path.StartsWithSegments(new PathString("/refresh")) &&
                 httpContext.Request.Method.Equals("post", StringComparison.OrdinalIgnoreCase))
             {
                 logger.LogInformation("Trying to expand refresh model from Http Body");
@@ -36,7 +36,7 @@ namespace Schedule.Middleware
                 logger.LogInformation("Trying to insert refresh token from cookies to Http Body");
 
                 tokenUpdateModel.RefreshToken = httpContext.Request.Cookies[Cookies.RefreshTokenKey];
-                
+
                 using var ms = new MemoryStream();
                 using var sw = new StreamWriter(ms);
                 await sw.WriteAsync(JsonSerializer.Serialize(tokenUpdateModel));

@@ -92,39 +92,14 @@ namespace Schedule.Business.Services.Implementations
             }, cancellationToken);
         }
 
-        public async Task<IEnumerable<GradeDto>> GetGradesAsync(CancellationToken cancellationToken = default)
-        {
-            return await UnitOfWork.Repository<Grade>().GetAsync(i => i.StudentId == currentUser.Value.UserId, i => new GradeDto
-            {
-                Id = i.Id,
-                Date = i.Date,
-                Comment = i.Comment,
-                Value = i.Value,
-                Student = i.Student,
-                Subject = i.Subject
-            }, cancellationToken);
-        }
-
-        public async Task<IEnumerable<GradeDto>> GetSubjectGradesAsync(Guid subjectId, CancellationToken cancellationToken = default)
-        {
-            return await UnitOfWork.Repository<Grade>().GetAsync(i => i.StudentId == currentUser.Value.UserId && i.SubjectId == subjectId, i => new GradeDto
-            {
-                Id = i.Id,
-                Date = i.Date,
-                Comment = i.Comment,
-                Value = i.Value,
-                Student = i.Student,
-                Subject = i.Subject
-            }, cancellationToken);
-        }
-
         public async Task<IEnumerable<UserDto>> GetGroupUsersAsync(CancellationToken cancellationToken = default)
         {
             return await UnitOfWork.Repository<User>().GetAsync(i => i.GroupId == currentUser.Value.GroupId, i => new UserDto
             {
                 Id = i.Id,
                 FirstName = i.FirstName,
-                LastName = i.LastName
+                LastName = i.LastName,
+                Role = i.Role
             }, cancellationToken);
         }
 
@@ -165,6 +140,13 @@ namespace Schedule.Business.Services.Implementations
 
             await UnitOfWork.Repository<User>().UpdateAsync(entity, cancellationToken);
             await UnitOfWork.SaveChangesAsync(cancellationToken);
+            return ActionStatus.Success;
+        }
+
+        public async Task<ActionStatus> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            await UnitOfWork.Repository<User>().DeleteAsync(i => i.Id == id, cancellationToken);
+            await UnitOfWork.SaveChangesAsync();
             return ActionStatus.Success;
         }
 

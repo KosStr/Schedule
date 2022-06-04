@@ -1,0 +1,16 @@
+<div id="members-list">
+  <div *ngIf="teacher">
+    <h2 class="header">Tutor: </h2>
+    <p>{{teacher.firstName}} {{teacher.lastName}}</p>
+  </div>
+  <div id="teacher-column" *ngIf="students?.length">
+    <h2 class="header">Student List: </h2>
+    <div *ngFor="let member of students">
+      <p>{{ member.firstName }} {{member.lastName}}</p>
+    </div>
+  </div>
+  <div>
+    <h2 class="header">Faculty: </h2>
+    <p>{{faculty}}</p>
+  </div>
+</div>

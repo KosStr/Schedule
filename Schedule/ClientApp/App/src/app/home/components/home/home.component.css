@@ -1,0 +1,13 @@
+#app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+app-nav-bar {
+  height: 64px;
+}
+
+#route-container {
+  height: calc(100vh - 64px);
+  z-index: 100;
+}

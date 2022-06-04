@@ -1,0 +1,26 @@
+<div id="nav-bar-menu">
+  <a class="menu-item" routerLink="/admin" *ngIf="isAdmin">
+    <i class="menu-icon"></i>
+    Admin
+  </a>
+  <a class="menu-item" routerLink="/personal">
+    <i class="menu-icon"></i>
+    Personal Info
+  </a>
+  <a class="menu-item" routerLink="/group">
+    <i class="menu-icon"></i>
+    Group Info
+  </a>
+  <a class="menu-item" routerLink="/statistic">
+    <i class="menu-icon"></i>
+    Statistic
+  </a>
+  <a class="menu-item" routerLink="/settings">
+    <i class="menu-icon"></i>
+    Settings
+  </a>
+  <a class="menu-item" (click)="showHelpDialog()">
+    <i class="menu-icon"></i>
+    Help
+  </a>
+</div>
