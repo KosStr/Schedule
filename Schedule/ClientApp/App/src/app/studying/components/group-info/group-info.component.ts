@@ -9,7 +9,6 @@ import { UserService } from '../../services/user-service';
 import { GroupService } from '../../services/group-service';
 import { GroupDto } from '../../models/GroupDto';
 import { CurrentUserService } from 'src/app/core/services/current-user.service';
-import { Faculty } from 'src/app/core/enums/faculty.enum';
 
 @Component({
   selector: 'app-group-info',
@@ -20,7 +19,6 @@ export class GroupInfoComponent implements OnInit, OnDestroy {
   students: UserDto[];
   teacher: UserDto;
   faculty = '';
-  facultyEnum = Faculty;
   destroy$ = new Subject<boolean>();
 
   constructor(
@@ -31,7 +29,6 @@ export class GroupInfoComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getGroupMembers();
-    this.getFaculty();
   }
 
   ngOnDestroy(): void {
@@ -52,21 +49,6 @@ export class GroupInfoComponent implements OnInit, OnDestroy {
               (m: UserDto) => m.role === Role.Teacher
             );
           }
-        }),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
-  }
-
-  private getFaculty(): void {
-    this.currentUserService.groupId$
-      .pipe(
-        mergeMap((result) => {
-          return this.groupService.getGroup(result);
-        }),
-        tap((group: GroupDto) => {
-          this.faculty = this.facultyEnum[group.faculty];
-          console.log(this.faculty);
         }),
         takeUntil(this.destroy$)
       )

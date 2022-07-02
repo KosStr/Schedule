@@ -1,0 +1,56 @@
+::ng-deep .mat-autocomplete-panel {
+  padding-inline: 10px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid #cdced8;
+  box-shadow: 0px 4px 24px rgb(22 36 85 / 15%);
+}
+
+input::placeholder {
+  color: #0a2b5c;
+  opacity: 0.7;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#autocomplete-field {
+  width: 100%;
+
+  #search-input {
+    width: 100%;
+    background-color: transparent;
+  }
+}
+
+label {
+  color: #8e8e8e;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.125;
+  letter-spacing: normal;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+#autocomplete-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  #autocomplete-placeholder {
+    margin: 0;
+    color: gray;
+  }
+}
+
+.sub-item {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  color: #0a2b5c;
+  height: 24px;
+  margin-bottom: 0;
+}

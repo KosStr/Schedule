@@ -16,8 +16,9 @@ namespace Schedule.database.Configurations.General
                 .IsRequired();
 
             builder
-                .Property(x => x.Faculty)
-                .IsRequired();
+               .HasOne(x => x.Faculty)
+               .WithMany(x => x.Groups)
+               .HasForeignKey(x => x.FacultyId);
 
             builder
                 .HasMany(x => x.Appointments)

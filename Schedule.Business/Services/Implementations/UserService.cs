@@ -150,6 +150,17 @@ namespace Schedule.Business.Services.Implementations
             return ActionStatus.Success;
         }
 
+        public async Task<IEnumerable<UserDto>> GetFacultyUsersAsync(CancellationToken cancellationToken = default)
+        {
+            return await UnitOfWork.Repository<User>().GetAsync(i => i.Group.FacultyId == this.currentUser.Value.FacultyId, i => new UserDto
+            {
+                Id = i.Id,
+                FirstName = i.FirstName,
+                LastName = i.LastName,
+                Role = i.Role
+            }, cancellationToken);
+        }
+
         #endregion
     }
 }

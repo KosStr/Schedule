@@ -54,6 +54,12 @@ namespace Schedule.Controllers.v1.Studying
             return Ok(await _groupService.DeleteAsync(id, cancellationToken));
         }
 
+        [HttpGet("faculty")]
+        public async Task<IActionResult> GetByFacultyAsync(CancellationToken cancellationToken = default)
+        {
+            return Ok(await _groupService.GetByFacultyId(cancellationToken));
+        }
+
         #endregion
     }
 }

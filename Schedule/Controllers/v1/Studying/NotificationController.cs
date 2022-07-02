@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Schedule.Controllers.v1.Studying
 {
-    [RouteV1("[controller]"), Policy(Role.Teacher)]
+    [RouteV1("[controller]")]
     public class NotificationController : ControllerBase
     {
         #region Properties
@@ -31,7 +31,7 @@ namespace Schedule.Controllers.v1.Studying
         #region Actions
 
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromBody] Notification notification, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> CreateAsync([FromBody] NotificationDto notification, CancellationToken cancellationToken = default)
         {
             return Ok(await _notificationService.CreateAsync(notification, cancellationToken));
         }
@@ -52,6 +52,12 @@ namespace Schedule.Controllers.v1.Studying
         public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
             return Ok(await _notificationService.DeleteAsync(id, cancellationToken));
+        }
+
+        [HttpGet("faculty")]
+        public async Task<IActionResult> GetByFacultyAsync(CancellationToken cancellationToken = default)
+        {
+            return Ok(await _notificationService.GetByFacultyAsync(cancellationToken));
         }
 
         #endregion

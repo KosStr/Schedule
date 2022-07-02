@@ -10,6 +10,8 @@ export class User {
   email: string;
   phone: string;
   role: Role;
+  facultyId?: Guid;
+  organizationId?: Guid;
 
   constructor(user: Partial<User>) {
     this.id = user.id;
@@ -20,5 +22,7 @@ export class User {
     this.email = user.email;
     this.phone = user.phone;
     this.role = user.role;
+    this.facultyId = user.facultyId;
+    this.organizationId = user.organizationId;
   }
 }

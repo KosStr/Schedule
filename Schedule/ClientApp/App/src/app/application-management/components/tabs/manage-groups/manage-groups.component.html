@@ -1,0 +1,43 @@
+<div id="notifications-content" [formGroup]="groupForm">
+  <div id="new-notification">
+    <mat-form-field required class="input-field">
+      <mat-label>Enter name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <shared-autocomplete class="input-field" [array]="studentsList" [selectedValues]="selectedStudents" [placeholder]="'Search students'"
+      [configuration]="configuration" (multipleSelected)="addStudents($event)">
+    </shared-autocomplete>
+    <div id="button-row">
+      <button [ngClass]="{'create-button': !selectedId, 'inactive-button': selectedId}"
+        (click)="manageGroup()">Create</button>
+      <button [ngClass]="{'update-button': selectedId, 'inactive-button': !selectedId}"
+        (click)="manageGroup()">Update</button>
+      <button [ngClass]="{'delete-button': selectedId, 'inactive-button': !selectedId}"
+        (click)="deleteGroup()">Delete</button>
+    </div>
+  </div>
+  <div *ngIf="facultyGroups?.length" id="notifications-table">
+    <table mat-table [dataSource]="facultyGroups" class="table">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="description-cell-header">
+            Name
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let group" class="short-description-cell"> {{ group.name }} </td>
+      </ng-container>
+      <ng-container matColumnDef="membersCount">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="description-cell-header">
+            Members amount
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let group" class="short-description-cell"> {{ group.membersCount }} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectGroup(row);"
+        [ngClass]="{'nav-active': row.id === selectedId}">
+      </tr>
+    </table>
+  </div>
+</div>

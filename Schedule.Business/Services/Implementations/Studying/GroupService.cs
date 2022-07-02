@@ -1,11 +1,14 @@
 ﻿using Schedule.Business.Helpers.Interfaces;
 using Schedule.Business.Services.Base;
 using Schedule.Business.Services.Interfaces.Studying;
+using Schedule.Core.DTO.Account;
 using Schedule.Core.DTO.Studying;
 using Schedule.Core.Entities.General;
 using Schedule.Core.Enums;
 using Schedule.Database.Repository.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -55,6 +58,21 @@ namespace Schedule.Business.Services.Implementations.Studying
                 Faculty = i.Faculty,
                 Assignments = i.Assignments,
                 Appointments = i.Appointments,
+            }, cancellationToken);
+        }
+
+        public async Task<IEnumerable<GroupDto>> GetByFacultyId(CancellationToken cancellationToken = default)
+        {
+            return await UnitOfWork.Repository<Group>().GetAsync(i => i.FacultyId == currentUser.Value.FacultyId, i => new GroupDto
+            {
+                Id = i.Id,
+                Name = i.Name,
+                Users = i.Users.Select(i => new UserDto
+                {
+                    Id = i.Id,
+                    FirstName = i.FirstName,
+                    LastName = i.LastName
+                })
             }, cancellationToken);
         }
 

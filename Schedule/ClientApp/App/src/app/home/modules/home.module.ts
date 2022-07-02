@@ -14,7 +14,7 @@ import { HomeComponent } from '../components/home/home.component';
 import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../components/footer/footer.component';
-import { NotificationService } from '../services/notification.service';
+import { ToastrNotificationService } from '../services/notification.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -50,7 +50,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     HelpDialogComponent,
   ],
   providers: [
-    NotificationService,
+    ToastrNotificationService,
     NotificationDialogService,
     HelpDialogService,
   ],

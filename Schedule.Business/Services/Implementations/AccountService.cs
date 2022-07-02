@@ -94,7 +94,9 @@ namespace Schedule.Business.Services.Implementations
                     GroupId = u.Group.Id,
                     GroupName = u.Group.Name,
                     Phone = u.Phone,
-                    Role = u.Role
+                    Role = u.Role,
+                    FacultyId = u.Group.FacultyId,
+                    OrganizationId = u.Group.Faculty.OrganizationId
                 }, cancellationToken);
 
             if (user == null && !await VerifyPasswordAsync(user.Email, auth.Password))
@@ -248,7 +250,9 @@ namespace Schedule.Business.Services.Implementations
                     new Claim(Constants.Claims.UserId, user.Id.ToString()),
                     new Claim(Constants.Claims.GroupId, user.GroupId.ToString()),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.Role.ToString())
+                    new Claim(ClaimTypes.Role, user.Role.ToString()),
+                    new Claim(Constants.Claims.FacultyId, user.FacultyId.ToString()),
+                    new Claim(Constants.Claims.OrganizationId, user.OrganizationId.ToString())
                 }),
                 Audience = _jwtSettings.Audience,
                 Issuer = _jwtSettings.Issuer,

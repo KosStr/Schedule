@@ -1,0 +1,72 @@
+<div id="notifications-content" [formGroup]="notificationForm">
+  <div id="new-notification">
+    <mat-form-field required class="input-field">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [min]="minDate" [rangePicker]="picker">
+        <input matStartDate formControlName="fromDate" placeholder="Start date">
+        <input matEndDate formControlName="dueDate" placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <mat-form-field required class="input-field">
+      <mat-label>Enter message</mat-label>
+      <input matInput formControlName="message">
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+          {{ priority.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <shared-autocomplete class="input-field" [array]="studentsList" [selectedValues]="selectedStudents" [placeholder]="'Search students'"
+    [configuration]="configuration" (multipleSelected)="addStudents($event)">
+  </shared-autocomplete>
+    <div class="input-field">
+      <mat-checkbox>Notify all</mat-checkbox>
+    </div>
+    <div id="button-row">
+      <button [ngClass]="{'create-button': !selectedId, 'inactive-button': selectedId}" (click)="manageNotification()">Create</button>
+      <button [ngClass]="{'update-button': selectedId, 'inactive-button': !selectedId}" (click)="manageNotification()">Update</button>
+      <button [ngClass]="{'delete-button': selectedId, 'inactive-button': !selectedId}" (click)="deleteNotification()">Delete</button>
+    </div>
+  </div>
+  <div *ngIf="facultyNotifications?.length" id="notifications-table">
+    <table mat-table [dataSource]="facultyNotifications" class="table">
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef>
+          <div class="description-cell-header">
+            Message
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let notification" class="short-description-cell"> {{ notification.message }} </td>
+      </ng-container>
+      <ng-container matColumnDef="fromDate">
+        <th mat-header-cell *matHeaderCellDef>
+          From Date
+        </th>
+        <td mat-cell *matCellDef="let notification" class="date-cell"> {{ notification.fromDate | date: 'dd-MM-yyyy' }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef>
+          Due Date
+        </th>
+        <td mat-cell *matCellDef="let notification" class="date-cell"> {{ notification.dueDate | date: 'dd-MM-yyyy' }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef>
+          Priority
+        </th>
+        <td mat-cell *matCellDef="let notification"> {{ notificationPriority[notification.priority] }} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectNotification(row);"
+        [ngClass]="{'nav-active': row.id === selectedId}">
+      </tr>
+    </table>
+  </div>
+</div>

@@ -9,4 +9,5 @@ export class UserApi {
     MEMBERS = `${URL}members`;
     NOTIFICATIONS = `${URL}notifications`
     CHATS = `${URL}chats`;
+    FACULTY_MEMBERS = `${URL}facultyMembers`;
 }

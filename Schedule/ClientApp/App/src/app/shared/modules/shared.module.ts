@@ -1,3 +1,4 @@
+import { SharedAutocompleteComponent } from './../components/shared-autocomplete/shared-autocomplete.component';
 import { SharedTableComponent } from './../configurations/shared-table/shared-table/shared-table.component';
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { CommonModule } from "@angular/common";
@@ -26,13 +27,16 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatTooltipModule,
     MatCheckboxModule,
     FormsModule,
+    MatAutocompleteModule
   ],
   declarations: [
-    SharedTableComponent
+    SharedTableComponent,
+    SharedAutocompleteComponent,
   ],
   providers: [],
   entryComponents: [],
-  exports: [
+  exports: [SharedAutocompleteComponent,
+    SharedTableComponent
   ],
 })
 export class SharedModule {}

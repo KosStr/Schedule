@@ -1,11 +1,13 @@
-.header {
+#content {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin: 25px;
 }
 
 .tab-content {
   background-color: #e3e9ef;
-  padding-top: 20px;
+  padding: 20px 0px 20px 0px;
+  border-radius: 0px 0px 20px 20px;
 }
 
 #header-title {
@@ -16,14 +18,9 @@
   margin-top: 30px;
 }
 
-.organization-management {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  background-color: #6ec3b34d;
-  margin-top: 30px;
-  margin-bottom: 30px;
+::ng-deep.mat-tab-header {
+  border-radius: 20px 20px 0px 0px;
+  background-color: #42abff;
 }
 
 .organization-select {
@@ -69,7 +66,7 @@
   width: 100px;
   background-color: red;
   color: white;
-  margin-left: 10px;  
+  margin-left: 10px;
   margin-right: 10px;
 }
 

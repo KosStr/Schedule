@@ -69,5 +69,31 @@ namespace Schedule.Business.Services.Implementations
                 return _role;
             }
         }
+
+        private Guid? _facultyId = null;
+        public Guid? FacultyId
+        {
+            get
+            {
+                if (!_facultyId.HasValue)
+                {
+                    _facultyId = Guid.TryParse(claims?.FirstOrDefault(i => i.Type == Constants.Claims.FacultyId)?.Value, out var facultyId) ? facultyId : Guid.Empty;
+                }
+                return _facultyId;
+            }
+        }
+
+        private Guid? _organizationId = null;
+        public Guid? OrganizationId
+        {
+            get
+            {
+                if (!_organizationId.HasValue)
+                {
+                    _organizationId = Guid.TryParse(claims?.FirstOrDefault(i => i.Type == Constants.Claims.OrganizationId)?.Value, out var organizationId) ? organizationId : Guid.Empty;
+                }
+                return _organizationId;
+            }
+        }
     }
 }

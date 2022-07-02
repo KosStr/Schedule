@@ -1,0 +1,26 @@
+<mat-form-field id="autocomplete-field">
+  <label *ngIf="label">label</label>
+  <input id="search-input" #autoCompleteInput [ngStyle]="{'font-size':  configuration?.fontSize?  configuration.fontSize+'px' : '14px',
+        'padding': configuration?.padding?  configuration.padding : '0',
+        'color': configuration?.color? configuration.color: 'black',
+        'opacity': configuration?.opacity? configuration.opacity: '1'}" type="text" matInput
+    [formControl]="selectControl" [matAutocomplete]="auto" placeholder="{{placeholder}}" (click)="setValue()">
+  <mat-autocomplete #auto="matAutocomplete" [panelWidth]="configuration?.panelWidth" [disableRipple]="true">
+    <div id="autocomplete-container">
+      <p id="autocomplete-placeholder" *ngIf="configuration?.autocompletePlaceholder" [ngStyle]="{'font-size':  configuration?.fontSize?  configuration.fontSize+'px' : '14px',
+             'padding': configuration?.padding?  configuration.padding : '0'}">
+        {{ configuration?.autocompletePlaceholder }}</p>
+      <mat-icon *ngIf="configuration?.selectIcon" id="select-icon" (click)="selectMultiple()">
+        {{configuration?.selectIcon}}
+      </mat-icon>
+    </div>
+    <mat-option *ngFor="let option of filteredValues | async" [value]="getOptionValue(option)" (click)="select(option)">
+      <p class="sub-item"
+        [ngStyle]="{'font-size':  configuration?.fontSize?  configuration.fontSize+'px' : '14px',
+            'padding': configuration?.padding?  configuration.padding : '0',
+            'background': configuration?.selectedBackground && isSelected(option) ? configuration.selectedBackground: 'none'}">
+        {{getOptionValue(option)}}
+      </p>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

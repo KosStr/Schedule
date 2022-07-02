@@ -6,8 +6,15 @@ export class UserDto {
   email: string;
   firstName: string;
   lastName: string;
-  phine: string;
+  phone: string;
   role: Role;
 
-  constructor(model: Partial<UserDto>) {}
+  constructor(model: Partial<UserDto>) {
+    this.id = model.id;
+    this.email = model.email;
+    this.firstName = model.firstName;
+    this.lastName = model.lastName;
+    this.phone = model.phone;
+    this.role = model.role;
+  }
 }

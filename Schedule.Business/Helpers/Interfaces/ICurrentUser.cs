@@ -1,5 +1,4 @@
-﻿using Schedule.Business.Services.Interfaces;
-using Schedule.Core.Enums;
+﻿using Schedule.Core.Enums;
 using System;
 
 namespace Schedule.Business.Helpers.Interfaces
@@ -10,5 +9,7 @@ namespace Schedule.Business.Helpers.Interfaces
         Guid? GroupId { get; }
         string Email { get; }
         Role? Role { get; }
+        Guid? FacultyId { get; }
+        Guid? OrganizationId { get; }
     }
 }

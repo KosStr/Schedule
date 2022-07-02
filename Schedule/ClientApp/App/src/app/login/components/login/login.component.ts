@@ -3,7 +3,7 @@ import { AuthenticationService } from "../../services/authentication.service";
 import { AuthDto } from "../../models/AuthDto";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
-import { NotificationService } from "../../../home/services/notification.service";
+import { ToastrNotificationService } from "../../../home/services/notification.service";
 import { takeUntil, tap } from "rxjs/operators";
 
 @Component({
@@ -18,7 +18,7 @@ export class LoginComponent implements OnDestroy {
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService,
-    private notificationService: NotificationService) { }
+    private toastrNotificationService: ToastrNotificationService) { }
 
   ngOnDestroy(): void {
     this.destroy$.next(null);
@@ -29,13 +29,13 @@ export class LoginComponent implements OnDestroy {
     this.authenticationService.login(this.model).pipe(
       tap((result: boolean) => {
         if (result) {
-          this.notificationService.showSuccessMessage("Authentication has been success")
+          this.toastrNotificationService.showSuccessMessage("Authentication has been success")
           this.router.navigate(['/']);
         } else {
-          this.notificationService.showErrorMessage("Credentials has been rejected");
+          this.toastrNotificationService.showErrorMessage("Credentials has been rejected");
         }
       }, err => {
-        this.notificationService.showErrorMessage(err);
+        this.toastrNotificationService.showErrorMessage(err);
       }),
       takeUntil(this.destroy$)
     )

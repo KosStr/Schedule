@@ -4,7 +4,6 @@ using Schedule.Core.Entities.Communication;
 using Schedule.Core.Entities.General;
 using Schedule.Core.Entities.Studying;
 using Schedule.Core.Entities.Token;
-using Schedule.Database.SeedData;
 
 namespace Schedule.database
 {
@@ -52,13 +51,15 @@ namespace Schedule.database
         public DbSet<File> Files { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Faculty> Faculties { get; set; }
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<UserChat> UserChats { get; set; }
-
+        
         #endregion
     }
 }

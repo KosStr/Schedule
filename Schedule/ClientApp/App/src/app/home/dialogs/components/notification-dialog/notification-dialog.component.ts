@@ -19,7 +19,6 @@ export class NotificationDialogComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
 
   constructor(
-
     public dialogRef: MatDialogRef<NotificationDialogComponent>,
     private userService: UserService
   ) {}

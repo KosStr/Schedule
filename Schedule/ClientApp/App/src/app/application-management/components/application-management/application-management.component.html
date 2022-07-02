@@ -1,9 +1,38 @@
-<div>
-  <div class="header">
-    <h3 id="header-title">Admin Page</h3>
+<div id="content" *ngIf="currentOrganization">
+  <h3 id="header-title">Admin Page | Organization: {{currentOrganization.name}}</h3>
+  <div>
+    <mat-tab-group>
+      <mat-tab label="Notifications">
+        <ng-template matTabContent>
+          <div class="tab-content">
+            <manage-notifications [studentsList]="students"></manage-notifications>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Groups">
+        <ng-template matTabContent>
+          <div class="tab-content">
+            <manage-groups [studentsList]="students"></manage-groups>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Appointments">
+        <ng-template matTabContent>
+          <div class="tab-content">
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Users">
+        <ng-template matTabContent>
+          <div class="tab-content">
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
   </div>
-  <div class="organization-management">
-    <!-- <div class="autocomplete">
+
+
+  <!-- <div class="autocomplete">
       <mat-form-field class="organization-select">
         <mat-label>{{'SUPER-ADMIN.ORGANIZATION' | translate}}: </mat-label>
         <input type="text" aria-label="Organization" matInput [formControl]="organizationControl"
@@ -30,88 +59,4 @@
         (click)="confirmDelete()">{{'EVALUATION-DETAILS.DELETE' | translate}}</button>
 
     </div>
-  </div>
-  <ng-container class="content">
-    <mat-tab-group>
-      <div *ngIf="this.isOrganizationSelected">
-        <mat-tab label="{{ 'MANAGE-LIST.IMPORT' | translate }}">
-          <ng-template matTabContent>
-            <div class="tab-content">
-              <app-super-admin-import></app-super-admin-import>
-            </div>
-          </ng-template>
-        </mat-tab>
-        <mat-tab label="{{ 'SUPER-ADMIN.ACTORS' | translate }}">
-          <div class="tab-content">
-            <ng-template matTabContent>
-              <app-super-admin-actor></app-super-admin-actor>
-            </ng-template>
-          </div>
-        </mat-tab>
-        <mat-tab label="{{ 'MANAGEMENT.TABS.TAB-EVALUATIONS' | translate }}">
-          <ng-template matTabContent>
-            <div class="tab-content">
-              <app-super-admin-evaluation></app-super-admin-evaluation>
-            </div>
-          </ng-template>
-        </mat-tab>
-        <mat-tab label="{{ 'MANAGEMENT.TABS.TAB-DASHBOARDS'  | translate }}">
-          <ng-template matTabContent>
-            <div class="tab-content">
-              <app-super-admin-dashboards></app-super-admin-dashboards>
-            </div>
-          </ng-template>
-        </mat-tab>
-        <mat-tab label="{{ 'MANAGEMENT.TABS.TAB-SURVEYS' | translate }}">
-          <div class="tab-content">
-            <ng-template matTabContent>
-              <app-super-admin-survey></app-super-admin-survey>
-            </ng-template>
-          </div>
-        </mat-tab>
-        <mat-tab label="{{ 'SUPER-ADMIN.TEMPLATES' | translate }}">
-          <div class="tab-content">
-            <ng-template matTabContent>
-              <app-super-admin-emails></app-super-admin-emails>
-            </ng-template>
-          </div>
-        </mat-tab>
-        <mat-tab label="{{ 'SUPER-ADMIN.SETTINGS' | translate }}">
-          <div class="tab-content">
-            <ng-template matTabContent>
-              <app-organization-settings></app-organization-settings>
-            </ng-template>
-          </div>
-        </mat-tab>
-        <mat-tab label="{{ 'MANAGEMENT.TABS.TAB-DASHBOARD-REPORTS' | translate }}">
-          <div class="tab-content">
-            <ng-template matTabContent>
-              <app-dashboard-report-menu></app-dashboard-report-menu>
-            </ng-template>
-          </div>
-        </mat-tab>
-        <mat-tab label="{{ 'MANAGEMENT.TABS.TAB-DASHBOARD-TEMPLATES' | translate }}">
-          <div class="tab-content">
-            <ng-template matTabContent>
-              <app-report-templates-component></app-report-templates-component>
-            </ng-template>
-          </div>
-        </mat-tab>
-        <mat-tab label="{{ 'SURVEY.INSTRUCTION' | translate }}">
-          <div class="tab-content">
-            <ng-template matTabContent>
-              <app-super-admin-instruction></app-super-admin-instruction>
-            </ng-template>
-          </div>
-        </mat-tab>
-      </div>
-      <mat-tab label="{{ 'SUPER-ADMIN.ALERT.TITLE' | translate }}">
-        <div class="tab-content">
-          <ng-template matTabContent>
-            <app-super-admin-alert></app-super-admin-alert>
-          </ng-template>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </ng-container> -->
-</div>
+  </div>-->

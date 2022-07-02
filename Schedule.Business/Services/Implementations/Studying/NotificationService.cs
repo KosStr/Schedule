@@ -6,6 +6,8 @@ using Schedule.Core.Entities.General;
 using Schedule.Core.Enums;
 using Schedule.Database.Repository.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -32,9 +34,21 @@ namespace Schedule.Business.Services.Implementations.Studying
 
         #region Interface Members
 
-        public async Task<ActionStatus> CreateAsync(Notification notification, CancellationToken cancellationToken = default)
+        public async Task<ActionStatus> CreateAsync(NotificationDto notification, CancellationToken cancellationToken = default)
         {
-            await UnitOfWork.Repository<Notification>().CreateAsync(notification, cancellationToken);
+            await UnitOfWork.Repository<Notification>().CreateAsync(new Notification
+            {
+                FromDate = notification.FromDate,
+                DueDate = notification.DueDate,
+                Message = notification.Message,
+                Priority = notification.Priority,
+                Type = notification.Type,
+                UserNotifications = notification.Users.Select(i => new UserNotification
+                {
+                    UserId = i.Id
+                }).ToList()
+            }, cancellationToken);
+
             await UnitOfWork.SaveChangesAsync(cancellationToken);
             return ActionStatus.Success;
         }
@@ -42,7 +56,7 @@ namespace Schedule.Business.Services.Implementations.Studying
         public async Task<ActionStatus> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             await UnitOfWork.Repository<Notification>().DeleteAsync(i => i.Id == id, cancellationToken);
-            await UnitOfWork.SaveChangesAsync();
+            await UnitOfWork.SaveChangesAsync(cancellationToken);
             return ActionStatus.Success;
         }
 
@@ -77,6 +91,19 @@ namespace Schedule.Business.Services.Implementations.Studying
             await UnitOfWork.Repository<Notification>().UpdateAsync(entity, cancellationToken);
             await UnitOfWork.SaveChangesAsync(cancellationToken);
             return ActionStatus.Success;
+        }
+
+        public async Task<IEnumerable<NotificationDto>> GetByFacultyAsync(CancellationToken cancellationToken = default)
+        {
+            return await UnitOfWork.Repository<UserNotification>().GetAsync(i => i.User.Group.FacultyId == currentUser.Value.FacultyId, i => new NotificationDto
+            {
+                Id = i.Notification.Id,
+                FromDate = i.Notification.FromDate,
+                DueDate = i.Notification.DueDate,
+                Message = i.Notification.Message,
+                Priority = i.Notification.Priority,
+                Type = i.Notification.Type
+            }, cancellationToken);
         }
 
         #endregion

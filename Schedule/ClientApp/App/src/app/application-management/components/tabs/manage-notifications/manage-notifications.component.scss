@@ -1,0 +1,109 @@
+.button{
+  width: 76px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: white;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#notifications-content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.input-field {
+  width: 270px;
+  padding-left: 20px;
+}
+
+#new-notification {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+#notifications-table {
+  cursor: pointer;
+  padding-right: 20px;
+  margin-left: 35px;
+  overflow: auto;
+  width: 100%;
+}
+
+#button-row{
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  margin: 10px 0px 0px 20px;
+  justify-content: space-between;
+
+  .create-button {
+    @extend .button;
+    border: 1px solid seagreen;
+    color: seagreen;
+  }
+
+  .update-button {
+    @extend .button;
+    border: 1px solid #ffbf53;
+    color: #ffbf53;
+  }
+
+  .delete-button {
+    @extend .button;
+    border: 1px solid #ff5050;
+    color: #ff5050;
+  }
+
+  .inactive-button{
+    @extend .button;
+    border: 1px solid grey;
+    color: grey;
+  }
+}
+
+tr.mat-header-row {
+  height: 25px;
+}
+
+tr.mat-row {
+  height: 35px;
+}
+
+td.mat-cell{
+  border-bottom-style: none;
+}
+
+.table {
+  width: 100%;
+}
+
+.mat-cell{
+  vertical-align: middle;
+}
+
+.borders {
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.nav-active {
+  background-color: rgb(176, 218, 255) !important;
+  color: white !important;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding: 0;
+}

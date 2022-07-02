@@ -1,3 +1,6 @@
+import { SharedModule } from './../../shared/modules/shared.module';
+import { NotificationApi } from 'src/app/studying/api/api.notification';
+import { ManageNotificationsComponent } from './../components/tabs/manage-notifications/manage-notifications.component';
 import { AppointmentApi } from './../../studying/api/api.appointment';
 import { GroupApi } from './../../studying/api/api.group';
 import { UserApi } from './../../studying/api/api.user';
@@ -22,6 +25,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { ApplicationManagementService } from '../services/application-management.service';
 import { ApplicationManagementComponent } from '../components/application-management/application-management.components';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ManageGroupsComponent } from '../components/tabs/manage-groups/manage-groups.component';
 
 @NgModule({
   imports: [
@@ -43,18 +48,24 @@ import { ApplicationManagementComponent } from '../components/application-manage
     MatCheckboxModule,
     MatAutocompleteModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule,
     DragDropModule,
+    SharedModule,
   ],
   declarations: [
     ApplicationManagementComponent,
+    ManageNotificationsComponent,
+    ManageGroupsComponent,
   ],
   providers: [
     ApplicationManagementService,
-   UserApi,
-   GroupApi,
-   AppointmentApi
+    UserApi,
+    NotificationApi,
+    GroupApi,
+    AppointmentApi,
   ],
-  entryComponents: [
-  ]
+  entryComponents: [],
 })
-export class ApplicationManagementModule { }
+export class ApplicationManagementModule {}

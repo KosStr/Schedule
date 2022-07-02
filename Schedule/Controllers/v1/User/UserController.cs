@@ -34,6 +34,12 @@ namespace Schedule.Controllers.v1.Account
             return Ok(await _userService.GetGroupUsersAsync(cancellationToken));
         }
 
+        [HttpGet("facultyMembers")]
+        public async Task<IActionResult> GetFacultyUsersAsync(CancellationToken cancellationToken)
+        {
+            return Ok(await _userService.GetFacultyUsersAsync(cancellationToken));
+        }
+
         [HttpGet("appointments")]
         public async Task<IActionResult> GetAppointmentsAsync(CancellationToken cancellationToken)
         {

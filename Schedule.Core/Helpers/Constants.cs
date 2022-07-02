@@ -40,6 +40,9 @@
         {
             public const string UserId = "UserId";
             public const string GroupId = "GroupId";
+            public const string FacultyId = "FacultyId";
+            public const string OrganizationId = "OrganizationId";
+
         }
 
         #endregion

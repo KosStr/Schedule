@@ -2,7 +2,6 @@
 using Schedule.Core.Entities.Base;
 using Schedule.Core.Entities.General;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Schedule.Core.Entities.Studying
